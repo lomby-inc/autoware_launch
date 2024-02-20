@@ -9,17 +9,17 @@
       enable_slow_down_planning: true
 
       # longitudinal info
-      idling_time: 2.0 # idling time to detect front vehicle starting deceleration [s]
+      idling_time: 0.1 # idling time to detect front vehicle starting deceleration [s]
       min_ego_accel_for_rss: -1.0 # ego's acceleration to calculate RSS distance [m/ss]
       min_object_accel_for_rss: -1.0 # front obstacle's acceleration to calculate RSS distance [m/ss]
-      safe_distance_margin : 6.0 # This is also used as a stop margin [m]
-      terminal_safe_distance_margin : 3.0 # Stop margin at the goal. This value cannot exceed safe distance margin. [m]
+      safe_distance_margin : 0.5 # This is also used as a stop margin [m]
+      terminal_safe_distance_margin : 0.5 # Stop margin at the goal. This value cannot exceed safe distance margin. [m]
       hold_stop_velocity_threshold: 0.01 # The maximum ego velocity to hold stopping [m/s]
       hold_stop_distance_threshold: 0.3 # The ego keeps stopping if the distance to stop changes within the threshold [m]
 
-      nearest_dist_deviation_threshold: 3.0 # [m] for finding nearest index
+      nearest_dist_deviation_threshold: 0.1 # [m] for finding nearest index
       nearest_yaw_deviation_threshold: 1.57 # [rad] for finding nearest index
-      min_behavior_stop_margin: 3.0 # [m]
+      min_behavior_stop_margin: 0.1 # [m]
       stop_on_curve:
         enable_approaching: false
         additional_safe_distance_margin: 3.0 # [m]
@@ -45,20 +45,20 @@
           trailer: true
           motorcycle: true
           bicycle: true
-          pedestrian: false
+          pedestrian: true
 
         outside:
-          unknown: false
+          unknown: true
           car: true
           truck: true
           bus: true
           trailer: true
           motorcycle: true
-          bicycle: false
-          pedestrian: false
+          bicycle: true
+          pedestrian: true
 
       slow_down_obstacle_type:
-        unknown: false
+        unknown: true
         car: true
         truck: true
         bus: true
@@ -73,28 +73,28 @@
       prediction_resampling_time_interval: 0.1
       prediction_resampling_time_horizon: 10.0
 
-      stop_obstacle_hold_time_threshold : 1.0 # maximum time for holding closest stop obstacle
+      stop_obstacle_hold_time_threshold : 0.5 # maximum time for holding closest stop obstacle
 
       # hysteresis for cruise and stop
-      obstacle_velocity_threshold_from_cruise_to_stop : 3.0 # stop planning is executed to the obstacle whose velocity is less than this value [m/s]
-      obstacle_velocity_threshold_from_stop_to_cruise : 3.5 # stop planning is executed to the obstacle whose velocity is less than this value [m/s]
+      obstacle_velocity_threshold_from_cruise_to_stop : 1.68 # stop planning is executed to the obstacle whose velocity is less than this value [m/s]
+      obstacle_velocity_threshold_from_stop_to_cruise : 1.67 # stop planning is executed to the obstacle whose velocity is less than this value [m/s]
 
       # if crossing vehicle is determined as target obstacles or not
       crossing_obstacle:
-        obstacle_velocity_threshold : 3.0 # velocity threshold for crossing obstacle for cruise or stop [m/s]
+        obstacle_velocity_threshold : 1.67 # velocity threshold for crossing obstacle for cruise or stop [m/s]
         obstacle_traj_angle_threshold : 1.22 # [rad] = 70 [deg], yaw threshold of crossing obstacle against the nearest trajectory point for cruise or stop
 
       stop:
-        max_lat_margin: 0.0 # lateral margin between obstacle and trajectory band with ego's width
+        max_lat_margin: 2.0 # lateral margin between obstacle and trajectory band with ego's width
         crossing_obstacle:
           collision_time_margin : 4.0 # time threshold of collision between obstacle adn ego for cruise or stop [s]
 
       cruise:
         max_lat_margin: 1.0 # lateral margin between obstacle and trajectory band with ego's width
         outside_obstacle:
-          obstacle_velocity_threshold : 3.0 # minimum velocity threshold of obstacles outside the trajectory to cruise or stop [m/s]
-          ego_obstacle_overlap_time_threshold : 1.0 #  time threshold to decide cut-in obstacle for cruise or stop [s]
-          max_prediction_time_for_collision_check : 20.0 # prediction time to check collision between obstacle and ego
+          obstacle_velocity_threshold : 0.56 # minimum velocity threshold of obstacles outside the trajectory to cruise or stop [m/s]
+          ego_obstacle_overlap_time_threshold : 3.0 #  time threshold to decide cut-in obstacle for cruise or stop [s]
+          max_prediction_time_for_collision_check : 10.0 # prediction time to check collision between obstacle and ego
 
       slow_down:
         max_lat_margin: 1.1  # lateral margin between obstacle and trajectory band with ego's width
@@ -160,8 +160,8 @@
 
         # For initial Motion
         replan_vel_deviation: 5.0         # velocity deviation to replan initial velocity [m/s]
-        engage_velocity: 0.25              # engage velocity threshold [m/s] (if the trajectory velocity is higher than this value, use this velocity for engage vehicle speed)
-        engage_acceleration: 0.1           # engage acceleration [m/ss] (use this acceleration when engagement)
+        engage_velocity: 0.56              # engage velocity threshold [m/s] (if the trajectory velocity is higher than this value, use this velocity for engage vehicle speed)
+        engage_acceleration: 0.2           # engage acceleration [m/ss] (use this acceleration when engagement)
         engage_exit_ratio: 0.5             # exit engage sequence to normal velocity planning when the velocity exceeds engage_exit_ratio x engage_velocity.
         stop_dist_to_prohibit_engage: 0.5  # if the stop point is in this distance, the speed is set to 0 not to move the vehicle [m]
 
@@ -182,13 +182,13 @@
         moving:
           min_lat_margin: 0.2
           max_lat_margin: 1.0
-          min_ego_velocity: 2.0
-          max_ego_velocity: 8.0
+          min_ego_velocity: 0.56
+          max_ego_velocity: 1.11
         static:
           min_lat_margin: 0.2
           max_lat_margin: 1.0
-          min_ego_velocity: 2.0
-          max_ego_velocity: 8.0
+          min_ego_velocity: 0.56
+          max_ego_velocity: 1.11
 
       moving_object_speed_threshold: 0.5 # [m/s] how fast the object needs to move to be considered as "moving"
       moving_object_hysteresis_range: 0.1 # [m/s] hysteresis range used to prevent chattering when obstacle moves close to moving_object_speed_threshold
