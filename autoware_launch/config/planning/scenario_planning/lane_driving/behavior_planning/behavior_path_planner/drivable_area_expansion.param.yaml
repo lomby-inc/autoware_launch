@@ -7,7 +7,7 @@
 
     # Dynamic expansion by using the path curvature
     dynamic_expansion:
-      enabled: true
+      enabled: false
       print_runtime: false
       max_expansion_distance: 0.0 # [m] maximum distance by which the drivable area can be expended (0.0 means no limit)
       smoothing:
@@ -19,7 +19,7 @@
         extra_front_overhang: 0.5 # [m] extra length to add to the front overhang
         extra_width: 1.0 # [m] extra length to add to the width
       dynamic_objects:
-        avoid: false # if true, the drivable area is not expanded in the predicted path of dynamic objects
+        avoid: true # if true, the drivable area is not expanded in the predicted path of dynamic objects
         extra_footprint_offset:
           front: 0.5 # [m] extra length to add to the front of the dynamic object footprint
           rear: 0.5 # [m] extra length to add to the rear of the dynamic object footprint
