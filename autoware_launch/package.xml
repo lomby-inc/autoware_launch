@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>autoware_launch</name>
+  <name>autoware_launch_lomby</name>
   <version>0.1.0</version>
   <description>The autoware_launch package</description>
 
