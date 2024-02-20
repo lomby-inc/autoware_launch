@@ -2,7 +2,7 @@
 <launch>
   <!-- NOTE: optional parameters are written here -->
   <arg name="module_preset" default="default"/>
-  <include file="$(find-pkg-share autoware_launch)/config/planning/preset/$(var module_preset)_preset.yaml"/>
+  <include file="$(find-pkg-share autoware_launch_lomby)/config/planning/preset/$(var module_preset)_preset.yaml"/>
 
   <include file="$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml">
     <arg name="vehicle_param_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
@@ -10,16 +10,16 @@
     <arg name="pointcloud_container_name" value="$(var pointcloud_container_name)"/>
 
     <!-- common -->
-    <arg name="common_config_path" value="$(find-pkg-share autoware_launch)/config/planning/scenario_planning/common"/>
+    <arg name="common_config_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/scenario_planning/common"/>
     <arg name="common_param_path" value="$(var common_config_path)/common.param.yaml"/>
     <arg name="nearest_search_param_path" value="$(var common_config_path)/nearest_search.param.yaml"/>
     <arg name="costmap_generator_param_path" value="$(var common_config_path)/costmap_generator.param.yaml"/>
 
     <!-- mission planner -->
-    <arg name="mission_planner_param_path" value="$(find-pkg-share autoware_launch)/config/planning/mission_planning/mission_planner/mission_planner.param.yaml"/>
+    <arg name="mission_planner_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/mission_planning/mission_planner/mission_planner.param.yaml"/>
 
     <!-- behavior path planner -->
-    <arg name="behavior_path_config_path" value="$(find-pkg-share autoware_launch)/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner"/>
+    <arg name="behavior_path_config_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner"/>
     <arg name="behavior_path_planner_common_param_path" value="$(var behavior_path_config_path)/behavior_path_planner.param.yaml"/>
     <arg name="behavior_path_planner_scene_module_manager_param_path" value="$(var behavior_path_config_path)/scene_module_manager.param.yaml"/>
     <arg name="behavior_path_planner_side_shift_module_param_path" value="$(var behavior_path_config_path)/side_shift/side_shift.param.yaml"/>
@@ -32,8 +32,8 @@
     <arg name="behavior_path_planner_drivable_area_expansion_param_path" value="$(var behavior_path_config_path)/drivable_area_expansion.param.yaml"/>
 
     <!-- behavior velocity planner -->
-    <arg name="behavior_velocity_config_path" value="$(find-pkg-share autoware_launch)/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner"/>
-    <arg name="behavior_velocity_smoother_type_param_path" value="$(find-pkg-share autoware_launch)/config/planning/scenario_planning/common/motion_velocity_smoother/Analytical.param.yaml"/>
+    <arg name="behavior_velocity_config_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner"/>
+    <arg name="behavior_velocity_smoother_type_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/scenario_planning/common/motion_velocity_smoother/Analytical.param.yaml"/>
     <arg name="behavior_velocity_planner_common_param_path" value="$(var behavior_velocity_config_path)/behavior_velocity_planner.param.yaml"/>
     <arg name="behavior_velocity_planner_blind_spot_module_param_path" value="$(var behavior_velocity_config_path)/blind_spot.param.yaml"/>
     <arg name="behavior_velocity_planner_crosswalk_module_param_path" value="$(var behavior_velocity_config_path)/crosswalk.param.yaml"/>
@@ -49,13 +49,13 @@
     <arg name="behavior_velocity_planner_speed_bump_module_param_path" value="$(var behavior_velocity_config_path)/speed_bump.param.yaml"/>
     <arg name="behavior_velocity_planner_out_of_lane_module_param_path" value="$(var behavior_velocity_config_path)/out_of_lane.param.yaml"/>
     <arg name="behavior_velocity_planner_no_drivable_lane_module_param_path" value="$(var behavior_velocity_config_path)/no_drivable_lane.param.yaml"/>
-    <arg name="compare_map_filter_param_path" value="$(find-pkg-share autoware_launch)/config/perception/object_recognition/detection/pointcloud_filter/pointcloud_map_filter.param.yaml"/>
+    <arg name="compare_map_filter_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/perception/object_recognition/detection/pointcloud_filter/pointcloud_map_filter.param.yaml"/>
 
     <!-- parking -->
-    <arg name="freespace_planner_param_path" value="$(find-pkg-share autoware_launch)/config/planning/scenario_planning/parking/freespace_planner/freespace_planner.param.yaml"/>
+    <arg name="freespace_planner_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/scenario_planning/parking/freespace_planner/freespace_planner.param.yaml"/>
 
     <!-- motion -->
-    <arg name="motion_config_path" value="$(find-pkg-share autoware_launch)/config/planning/scenario_planning/lane_driving/motion_planning"/>
+    <arg name="motion_config_path" value="$(find-pkg-share autoware_launch_lomby)/config/planning/scenario_planning/lane_driving/motion_planning"/>
     <arg name="elastic_band_smoother_param_path" value="$(var motion_config_path)/path_smoother/elastic_band_smoother.param.yaml"/>
     <arg name="obstacle_avoidance_planner_param_path" value="$(var motion_config_path)/obstacle_avoidance_planner/obstacle_avoidance_planner.param.yaml"/>
     <arg name="path_sampler_param_path" value="$(var motion_config_path)/path_sampler/path_sampler.param.yaml"/>

@@ -32,15 +32,15 @@
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
   <arg
     name="system_error_monitor_param_path"
-    default="$(find-pkg-share autoware_launch)/config/system/system_error_monitor/system_error_monitor.awsim.param.yaml"
+    default="$(find-pkg-share autoware_launch_lomby)/config/system/system_error_monitor/system_error_monitor.awsim.param.yaml"
     description="system error monitor param path"
   />
   <!-- Tools -->
   <arg name="rviz" default="true" description="launch rviz"/>
-  <arg name="rviz_config" default="$(find-pkg-share autoware_launch)/rviz/autoware.rviz" description="rviz config"/>
+  <arg name="rviz_config" default="$(find-pkg-share autoware_launch_lomby)/rviz/autoware.rviz" description="rviz config"/>
 
   <group scoped="false">
-    <include file="$(find-pkg-share autoware_launch)/launch/autoware.launch.xml">
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/autoware.launch.xml">
       <!-- Common -->
       <arg name="map_path" value="$(var map_path)"/>
       <arg name="vehicle_model" value="$(var vehicle_model)"/>
