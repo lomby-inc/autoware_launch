@@ -75,7 +75,7 @@
     <let name="launch_dummy_localization" value="true"/>
     <let name="launch_diagnostic_converter" value="$(var scenario_simulation)"/>
 
-    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/tier4_simulator_component.launch.xml">
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_simulator_component.launch.xml">
       <arg name="launch_dummy_perception" value="$(var launch_dummy_perception)"/>
       <arg name="launch_dummy_vehicle" value="$(var launch_dummy_vehicle)"/>
       <arg name="launch_dummy_localization" value="$(var launch_dummy_localization)"/>
