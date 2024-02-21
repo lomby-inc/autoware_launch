@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <launch>
+  
+  <include file="$(find-pkg-share lomby_gps_manager)/launch/gps_launch.py"/>
+  
+  <include file="$(find-pkg-share lomby_sensor_kit_launch)/launch/ublox_topic_relay.launch.py"/>
+  
   <include file="$(find-pkg-share tier4_sensing_launch)/launch/sensing.launch.xml">
     <arg name="launch_driver" value="$(var launch_sensing_driver)"/>
     <arg name="sensor_model" value="$(var sensor_model)"/>
