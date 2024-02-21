@@ -2,30 +2,18 @@
   ros__parameters:
     delay_compensation_time: 0.17
 
-    # Default
     enable_smooth_stop: false
-    # Lomby
-    # enable_smooth_stop: true
     enable_overshoot_emergency: true
     enable_large_tracking_error_emergency: true
     enable_slope_compensation: true
-    # Default
     enable_keep_stopped_until_steer_convergence: false
-    # Lomby
-    # enable_keep_stopped_until_steer_convergence: true
 
     # state transition
     drive_state_stop_dist: 0.5
     drive_state_offset_stop_dist: 1.0
-    # Default
     stopping_state_stop_dist: 1.0
-    # Lomby
-    # stopping_state_stop_dist: 0.5
     stopped_state_entry_duration_time: 0.1
-    # Default
     stopped_state_entry_vel: 0.1
-    # Lomby
-    # stopped_state_entry_vel: 0.01
     stopped_state_entry_acc: 0.1
     emergency_state_overshoot_stop_dist: 1.5
     emergency_state_traj_trans_dev: 3.0
