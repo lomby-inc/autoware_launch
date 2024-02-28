@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    dt_max: 0.5
+    min_steady_duration: 2.0
+    min_steady_confidence_multiplier: 0.5
+    only_solid_green_or_red: true
+    filter_timeout: 1.0
+    unknown_confidence: 0.1
+    publish_latched_crossings: true
+    stop_latch_crossing_hysteresis: 5.0
+    contains_ego_stopline_threshold: 0.5
+    has_been_filter_true_duration: 0.0
+    has_been_filter_true_timeout: 30.0
+    consolidate_lights: true
