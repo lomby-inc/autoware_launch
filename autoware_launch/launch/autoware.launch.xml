@@ -31,16 +31,12 @@
   <arg name="check_external_emergency_heartbeat" default="false"/>
   <!-- Map -->
   <arg name="lanelet2_map_file" default="lanelet2.osm" description="lanelet2 map file name"/>
-  <arg name="pointcloud_map_file" default="map.pcd" description="pointcloud map file name"/>
+  <arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/>
   <!-- System -->
   <arg name="system_run_mode" default="online" description="run mode in system"/>
   <arg name="launch_system_monitor" default="true" description="launch system monitor"/>
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
   <arg name="system_error_monitor_param_path" default="$(find-pkg-share autoware_launch_lomby)/config/system/system_error_monitor/system_error_monitor.param.yaml"/>
-  <!-- Tools -->
-  <arg name="rviz" default="true" description="launch rviz"/>
-  <arg name="rviz_config" default="$(find-pkg-share autoware_launch_lomby)/rviz/autoware.rviz" description="rviz config"/>
-  <arg name="rviz_respawn" default="true"/>
   <!-- Perception -->
   <arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
   <arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/>
@@ -90,9 +86,12 @@
   <!-- Localization -->
   <group if="$(var launch_localization)">
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_localization_component.launch.xml">
-      <arg name="pose_source" value="ndt" description="select pose_estimator: ndt, yabloc, eagleye"/>
-      <arg name="twist_source" value="gyro_odom" description="select twist_estimator. gyro_odom, eagleye"/>
-      <arg name="input_pointcloud" value="/sensing/lidar/concatenated/pointcloud" description="The topic will be used in the localization util module"/>
+      <!-- select pose_estimator: ndt, yabloc, eagleye -->
+      <arg name="pose_source" value="ndt"/>
+      <!-- "select twist_estimator. gyro_odom, eagleye" -->
+      <arg name="twist_source" value="gyro_odom"/>
+      <!-- The topic will be used in the localization util module -->
+      <arg name="input_pointcloud" value="/sensing/lidar/concatenated/pointcloud"/>
     </include>
   </group>
 
@@ -120,18 +119,5 @@
   <!-- API -->
   <group>
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_autoware_api_component.launch.xml"/>
-  </group>
-
-  <!-- Tools -->
-  <group>
-    <node
-      pkg="rviz2"
-      exec="rviz2"
-      name="rviz2"
-      output="screen"
-      args="-d $(var rviz_config) -s $(find-pkg-share autoware_launch_lomby)/rviz/image/autoware.png"
-      if="$(var rviz)"
-      respawn="$(var rviz_respawn)"
-    />
   </group>
 </launch>
