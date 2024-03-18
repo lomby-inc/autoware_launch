@@ -99,6 +99,8 @@
   <group if="$(var launch_perception)">
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
+      <arg name="use_traffic_light_recognition" value="true"/>
+      <arg name="use_empty_dynamic_object_publisher" value="false"/>
     </include>
   </group>
 
