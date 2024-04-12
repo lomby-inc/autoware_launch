@@ -39,16 +39,16 @@
       gnss_rate: 1
       stop_judgment_threshold: 0.01
       slow_judgment_threshold: 0.278
-      moving_judgment_threshold: 2.78
+      moving_judgment_threshold: 0.55
 
     velocity_scale_factor:
       estimated_minimum_interval: 20
       estimated_maximum_interval: 400
       gnss_receiving_threshold: 0.25
       velocity_scale_factor_save_str: /config/velocity_scale_factor.txt
-      save_velocity_scale_factor: false
+      save_velocity_scale_factor: true
       velocity_scale_factor_save_duration: 100.0
-      th_velocity_scale_factor_percent: 10.0
+      th_velocity_scale_factor_percent: 40.0
 
     yaw_rate_offset_stop:
       estimated_interval: 3
