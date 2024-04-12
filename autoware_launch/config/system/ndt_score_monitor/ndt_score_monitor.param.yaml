@@ -1,0 +1,18 @@
+/**:
+  ros__parameters:
+    transform_probability_topic: "/localization/pose_estimator/transform_probability"
+    no_ground_transform_probability_topic: "/localization/pose_estimator/no_ground_transform_probability"
+    emergency_state_topic: "/api/autoware/get/emergency"
+    engage_state_topic: "/api/autoware/get/engage"
+    motion_state_topic: "/api/motion/state"
+    set_emergency_service: "/api/autoware/set/emergency"
+    clear_emergency_service: "/control/vehicle_cmd_gate/clear_external_emergency_stop"
+    engage_service: "/api/autoware/set/engage"
+
+    upper_limit: 5.5
+    lower_limit: 5.0
+
+    mode: "ground" #Optional modes "ground", "no_ground". Default is "Ground"
+    delta_time: 5 # In seconds
+
+    auto_restart_mode: false
