@@ -27,4 +27,7 @@
     <arg name="system_monitor_process_monitor_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/system/system_monitor/process_monitor.param.yaml"/>
     <arg name="system_monitor_voltage_monitor_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/system/system_monitor/voltage_monitor.param.yaml"/>
   </include>
+
+  <include file="$(find-pkg-share ndt_score_monitor)/launch/ndt_score_monitor.launch.xml"/>
+  
 </launch>
