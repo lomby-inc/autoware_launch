@@ -1,6 +1,0 @@
-/**:
-  ros__parameters:
-    camera_info_is_static: true
-    map_frame: "map"
-    crossing_proximity_threshold: 50.0
-    angular_roi_inflation_degrees: 2.5

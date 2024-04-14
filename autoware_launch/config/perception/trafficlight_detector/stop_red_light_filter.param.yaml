@@ -1,6 +1,0 @@
-/**:
-  ros__parameters:
-    stop_line_approach_distance_threshold: 0.5
-    velocity_deadzone: 0.005
-    has_been_filter_true_duration: 5.0
-    has_been_filter_true_timeout: 60.0

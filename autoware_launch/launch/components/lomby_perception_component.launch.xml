@@ -11,7 +11,7 @@
   <arg name="data_path" default="$(env HOME)/autoware_data" description="packages data and artifacts directory path"/>
 
   <!-- Lomby trafficlight perception system -->
-  <include file="$(find-pkg-share lomby_traffic_light_recognition_launcher)/launch/traffic_light_recognition.launch.xml"/>
+  <include file="$(find-pkg-share lomby_trafficlight_classifier)/launch/trafficlight_recognition.launch.py"/>
 
   <include file="$(find-pkg-share tier4_perception_launch)/launch/perception.launch.xml">
     <arg name="mode" value="$(var perception_mode)"/>
