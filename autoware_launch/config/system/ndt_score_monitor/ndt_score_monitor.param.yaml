@@ -10,7 +10,7 @@
     engage_service: "/api/autoware/set/engage"
 
     upper_limit: 5.5
-    lower_limit: 5.0
+    lower_limit: 4.8
 
     mode: "ground" #Optional modes "ground", "no_ground". Default is "Ground"
     delta_time: 5 # In seconds
