@@ -1,7 +1,7 @@
 /**:
   ros__parameters:
     map_length: 150.0     # [m]
-    map_resolution: 0.5 # [m]
+    map_resolution: 0.2 # [m]
 
     height_filter:
       use_height_filter: true
