@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <launch>
+
+  <!-- Vector Map Tools Node-->
+  <include file="$(find-pkg-share lomby_vector_map_planning_tools)/launch/lomby_vector_map_planning_tools.launch.py"/>
+
   <!-- NOTE: optional parameters are written here -->
   <arg name="module_preset" default="default"/>
   <include file="$(find-pkg-share autoware_launch_lomby)/config/planning/preset/$(var module_preset)_preset.yaml"/>
