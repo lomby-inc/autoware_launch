@@ -100,7 +100,10 @@
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
       <arg name="use_traffic_light_recognition" value="false"/>
-      <arg name="use_empty_dynamic_object_publisher" value="true"/>
+      <arg name="use_empty_dynamic_object_publisher" value="false"/>
+      <arg name="mode" value="$(var perception_mode)"/>
+      <arg name="remove_unknown" value="false"/>
+      <arg name="lidar_detection_model" value="clustering"/>
     </include>
   </group>
 

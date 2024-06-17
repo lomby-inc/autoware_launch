@@ -8,7 +8,7 @@
 
       debug:
         # flag to publish
-        enable_pub_debug_marker: false           # publish debug marker
+        enable_pub_debug_marker: true           # publish debug marker
         enable_pub_extra_debug_marker: false    # publish extra debug marker
 
         # flag to show
@@ -22,7 +22,6 @@
 
       vehicle_stop_margin_outside_drivable_area: 0.0 # vehicle stop margin to let the vehicle stop before the calculated stop point if it is calculated outside the drivable area [m] .
                                                      # This margin will be realized with delta_arc_length_for_mpt_points m precision.
-
     # replanning & trimming trajectory param outside algorithm
     replan:
       max_path_shape_around_ego_lat_dist: 2.0  # threshold of path shape change around ego [m]
@@ -78,7 +77,7 @@
 
       # avoidance
       avoidance:
-        max_bound_fixing_time: 1.0 # [s]
+        max_bound_fixing_time: 3.0 # [s]
         max_longitudinal_margin_for_bound_violation: 1.0 # [m]
         max_avoidance_cost: 0.5                          # [m]
         avoidance_cost_margin: 0.0                       # [m]

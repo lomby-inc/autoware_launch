@@ -1,8 +1,8 @@
 /**:
   ros__parameters:
     avoidance_by_lane_change:
-      execute_object_longitudinal_margin: 80.0
-      execute_only_when_lane_change_finish_before_object: false
+      execute_object_longitudinal_margin: 0.0
+      execute_only_when_lane_change_finish_before_object: true
 
       # avoidance is performed for the object type with true
       target_object:
@@ -77,10 +77,10 @@
       target_filtering:
         # avoidance target type
         target_type:
-          car: true                                    # [-]
-          truck: true                                  # [-]
-          bus: true                                    # [-]
-          trailer: true                                # [-]
+          car: false                                    # [-]
+          truck: false                                  # [-]
+          bus: false                                    # [-]
+          trailer: false                                # [-]
           unknown: true                                # [-]
           bicycle: false                               # [-]
           motorcycle: false                            # [-]
