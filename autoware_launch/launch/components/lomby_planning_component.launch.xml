@@ -3,6 +3,7 @@
 
   <!-- Vector Map Tools Node-->
   <include file="$(find-pkg-share lomby_vector_map_planning_tools)/launch/lomby_vector_map_planning_tools.launch.py"/>
+  <node pkg="vector_map_tool_relay" exec="vector_map_tool_relay" name="vector_map_tool_relay" output="screen"/>
 
   <!-- NOTE: optional parameters are written here -->
   <arg name="module_preset" default="default"/>
