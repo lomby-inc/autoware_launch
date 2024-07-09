@@ -40,6 +40,8 @@
   <!-- Perception -->
   <arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
   <arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/>
+  <arg name="image_raw0" default="/sensing/trafficlight_camera/image_rect" description="image raw topic name"/>
+  <arg name="camera_info0" default="/sensing/trafficlight_camera/camera_info" description="camera info topic name"/>
 
   <!-- Global parameters -->
   <group scoped="false">
