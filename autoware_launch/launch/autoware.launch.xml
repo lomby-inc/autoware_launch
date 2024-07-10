@@ -38,7 +38,7 @@
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
   <arg name="system_error_monitor_param_path" default="$(find-pkg-share autoware_launch_lomby)/config/system/system_error_monitor/system_error_monitor.param.yaml"/>
   <!-- Perception -->
-  <arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
+  <arg name="perception_mode" default="camera_lidar_fusion" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
   <arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/>
   <arg name="image_raw0" default="/sensing/trafficlight_camera/image_rect" description="image raw topic name"/>
   <arg name="camera_info0" default="/sensing/trafficlight_camera/camera_info" description="camera info topic name"/>
@@ -102,7 +102,7 @@
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
       <arg name="use_traffic_light_recognition" value="false"/>
-      <arg name="use_empty_dynamic_object_publisher" value="true"/>
+      <arg name="use_empty_dynamic_object_publisher" value="false"/>
     </include>
   </group>
 
