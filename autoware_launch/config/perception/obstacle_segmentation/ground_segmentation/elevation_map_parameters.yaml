@@ -18,11 +18,11 @@ pcl_grid_map_extraction:
     mean_K: 10
     stddev_threshold: 1.0
   downsampling:
-    is_downsample_cloud: false
+    is_downsample_cloud: true
     voxel_size:
-      x: 0.02
-      y: 0.02
-      z: 0.02
+      x: 0.03
+      y: 0.03
+      z: 0.03
   grid_map:
     min_num_points_per_cell: 3
     resolution: 0.3
