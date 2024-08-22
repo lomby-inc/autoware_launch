@@ -13,9 +13,6 @@
   <!-- Lomby trafficlight perception system -->
   <include file="$(find-pkg-share lomby_trafficlight_classifier)/launch/trafficlight_recognition.launch.py"/>
 
-  <!-- Obstacle Grid Map Rotator-->
-  <include file="$(find-pkg-share obstacle_grid_map_rotator)/launch/occupancy_grid_rotator.launch.py"/>
-
   <include file="$(find-pkg-share tier4_perception_launch)/launch/perception.launch.xml">
     <arg name="mode" value="$(var perception_mode)"/>
     <arg name="vehicle_param_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
