@@ -11,10 +11,10 @@
         truck: true
         bus: true
         trailer: true
-        unknown: false
+        unknown: true
         bicycle: false
         motorcycle: true
-        pedestrian: false
+        pedestrian: true
 
         max_obstacle_vel: 100.0 # [m/s]
         min_obstacle_vel: 0.0 # [m/s]

@@ -84,4 +84,4 @@
           unknown: true                                # [-]
           bicycle: false                               # [-]
           motorcycle: false                            # [-]
-          pedestrian: false                            # [-]
+          pedestrian: true                            # [-]
