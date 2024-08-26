@@ -11,7 +11,7 @@
     unknown:
       enable_check: true
       surround_check_front_distance: 0.5
-      surround_check_side_distance: 0.5
+      surround_check_side_distance: 0.1
       surround_check_back_distance: 0.5
     car:
       enable_check: true
@@ -46,7 +46,7 @@
     pedestrian:
       enable_check: true
       surround_check_front_distance: 0.5
-      surround_check_side_distance: 0.5
+      surround_check_side_distance: 0.2
       surround_check_back_distance: 0.5
 
     surround_check_hysteresis_distance: 0.3

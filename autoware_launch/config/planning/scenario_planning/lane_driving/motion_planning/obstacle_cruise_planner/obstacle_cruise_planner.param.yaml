@@ -27,7 +27,7 @@
       suppress_sudden_obstacle_stop: true
 
       stop_obstacle_type:
-        unknown: true
+        unknown: false
         car: true
         truck: true
         bus: true
