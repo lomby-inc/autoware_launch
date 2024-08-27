@@ -8,7 +8,7 @@ launch:
       default: "true"
   - arg:
       name: launch_dynamic_avoidance_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_lane_change_right_module
       default: "true"
@@ -94,7 +94,7 @@ launch:
 
   - arg:
       name: motion_stop_planner_type
-      default: obstacle_cruise_planner
+      default: obstacle_stop_planner
       # option: obstacle_stop_planner
       #         obstacle_cruise_planner
       #         none
