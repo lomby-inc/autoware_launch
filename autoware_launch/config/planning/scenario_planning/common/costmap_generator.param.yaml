@@ -1,6 +1,6 @@
 /**:
   ros__parameters:
-    costmap_frame: "base_link"
+    costmap_frame: "map"
     vehicle_frame: "base_link"
     map_frame: "map"
     update_rate: 10.0
@@ -12,8 +12,8 @@
     grid_length_y: 30.0
     grid_position_x: 0.0
     grid_position_y: 0.0
-    maximum_lidar_height_thres: 1.3
-    minimum_lidar_height_thres: -2.2
+    maximum_lidar_height_thres: 2000.3
+    minimum_lidar_height_thres: -2000.2
     use_wayarea: true
     use_parkinglot: true
     use_objects: true
