@@ -14,7 +14,7 @@
 
     # grid map coordinate
     map_frame: "map"
-    base_link_frame: "base_link"
+    base_link_frame: "3d_lidar"
     # center of the grid map
     gridmap_origin_frame: "3d_lidar"
     # ray-tracing center: main sensor frame is preferable like: "velodyne_top"
