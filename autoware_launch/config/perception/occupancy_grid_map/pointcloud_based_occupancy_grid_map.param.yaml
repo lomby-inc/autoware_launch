@@ -23,7 +23,7 @@
 
     grid_map_type: "OccupancyGridMapFixedBlindSpot"
     OccupancyGridMapFixedBlindSpot:
-      distance_margin: 1.0
+      distance_margin: 0.25
     OccupancyGridMapProjectiveBlindSpot:
       projection_dz_threshold: 0.01 # [m] for avoiding null division
       obstacle_separation_threshold: 1.0 # [m] fill the interval between obstacles with unknown for this length
