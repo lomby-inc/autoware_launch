@@ -9,7 +9,7 @@
       threshold:
         time_threshold: 5.0  # [s] consider objects that will reach an overlap within this time
       ttc:
-        threshold: 1.0 # [s] consider objects with an estimated time to collision bellow this value while on the overlap
+        threshold: 3.0 # [Original] 1.0 # [s] consider objects with an estimated time to collision bellow this value while on the overlap
 
       objects:
         minimum_velocity: 0.5  # [m/s] objects lower than this velocity will be ignored

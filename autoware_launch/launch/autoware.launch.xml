@@ -34,12 +34,12 @@
   <arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/>
   <!-- System -->
   <arg name="system_run_mode" default="online" description="run mode in system"/>
-  <arg name="launch_system_monitor" default="true" description="launch system monitor"/>
+  <arg name="launch_system_monitor" default="false" description="launch system monitor"/>
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
-  <arg name="diagnostic_graph_aggregator_graph_path" default="$(find-pkg-share autoware_launch)/config/system/diagnostic_graph_aggregator/autoware-main.yaml" description="diagnostic graph config"/>
+  <arg name="diagnostic_graph_aggregator_graph_path" default="$(find-pkg-share autoware_launch_lomby)/config/system/diagnostic_graph_aggregator/autoware-main.yaml" description="diagnostic graph config"/>
   <!-- Tools -->
   <arg name="rviz" default="true" description="launch rviz"/>
-  <arg name="rviz_config" default="$(find-pkg-share autoware_launch)/rviz/autoware.rviz" description="rviz config"/>
+  <arg name="rviz_config" default="$(find-pkg-share autoware_launch_lomby)/rviz/autoware.rviz" description="rviz config"/>
   <arg name="rviz_respawn" default="true"/>
   <!-- Perception -->
   <arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
@@ -47,6 +47,8 @@
   <!-- Auto mode setting-->
   <arg name="enable_all_modules_auto_mode" default="false" description="enable all module's auto mode"/>
   <arg name="is_simulation" default="false" description="Autoware's behavior will change depending on whether this is a simulation or not."/>
+  <arg name="image_raw0" default="/sensing/trafficlight_camera/image_rect" description="image raw topic name"/>
+  <arg name="camera_info0" default="/sensing/trafficlight_camera/camera_info" description="camera info topic name"/>
 
   <!-- Global parameters -->
   <group scoped="false">
@@ -57,10 +59,10 @@
   </group>
 
   <!-- Pointcloud container -->
-  <include file="$(find-pkg-share autoware_launch)/launch/pointcloud_container.launch.py">
-    <arg name="use_multithread" value="true"/>
-    <arg name="container_name" value="$(var pointcloud_container_name)"/>
-  </include>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/pointcloud_container.launch.py">
+      <arg name="use_multithread" value="true"/>
+      <arg name="container_name" value="$(var pointcloud_container_name)"/>
+    </include>
 
   <!-- Vehicle -->
   <group if="$(var launch_vehicle)">
@@ -69,41 +71,50 @@
       <arg name="sensor_model" value="$(var sensor_model)"/>
       <arg name="vehicle_id" value="$(var vehicle_id)"/>
       <arg name="launch_vehicle_interface" value="$(var launch_vehicle_interface)"/>
-      <arg name="config_dir" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)"/>
-      <arg name="raw_vehicle_cmd_converter_param_path" value="$(find-pkg-share autoware_launch)/config/vehicle/raw_vehicle_cmd_converter/raw_vehicle_cmd_converter.param.yaml"/>
+      <arg name="config_dir" value="$(find-pkg-share lomby_individual_params)/config/$(var vehicle_id)/$(var sensor_model)"/>
+      <arg name="raw_vehicle_cmd_converter_param_path" value="$(find-pkg-share autoware_launch_lomby)/config/vehicle/raw_vehicle_cmd_converter/raw_vehicle_cmd_converter.param.yaml"/>
     </include>
   </group>
 
-  <!-- System -->
+   <!-- System -->
   <group if="$(var launch_system)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_system_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_system_component.launch.xml"/>
   </group>
 
   <!-- Map -->
   <group if="$(var launch_map)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_map_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_map_component.launch.xml"/>
   </group>
 
   <!-- Sensing -->
   <group if="$(var launch_sensing)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_sensing_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_sensing_component.launch.xml"/>
   </group>
 
   <!-- Localization -->
   <group if="$(var launch_localization)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_localization_component.launch.xml">
+      <!-- select pose_estimator: ndt, yabloc, eagleye -->
+      <arg name="pose_source" value="ndt"/>
+      <!-- "select twist_estimator. gyro_odom, eagleye" -->
+      <arg name="twist_source" value="gyro_odom"/>
+      <!-- The topic will be used in the localization util module -->
+      <arg name="input_pointcloud" value="/sensing/lidar/concatenated/pointcloud"/>
+    </include>
   </group>
 
   <!-- Perception -->
   <group if="$(var launch_perception)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_perception_component.launch.xml">
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
+      <arg name="use_traffic_light_recognition" value="false"/>
+      <arg name="use_empty_dynamic_object_publisher" value="false"/>
     </include>
   </group>
 
   <!-- Planning -->
   <group if="$(var launch_planning)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_planning_component.launch.xml">
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_planning_component.launch.xml">
       <arg name="module_preset" value="$(var planning_module_preset)"/>
       <arg name="enable_all_modules_auto_mode" value="$(var enable_all_modules_auto_mode)"/>
       <arg name="is_simulation" value="$(var is_simulation)"/>
@@ -112,12 +123,16 @@
 
   <!-- Control -->
   <group if="$(var launch_control)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_control_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_control_component.launch.xml"/>
   </group>
 
   <!-- API -->
   <group if="$(var launch_api)">
-    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_autoware_api_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/tier4_autoware_api_component.launch.xml"/>
+  </group>
+
+  <group>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_autoware_api_component.launch.xml"/>
   </group>
 
   <!-- Tools -->
@@ -127,7 +142,7 @@
       exec="rviz2"
       name="rviz2"
       output="screen"
-      args="-d $(var rviz_config) -s $(find-pkg-share autoware_launch)/rviz/image/autoware.png"
+      args="-d $(var rviz_config) -s $(find-pkg-share autoware_launch_lomby)/rviz/image/autoware.png"
       if="$(var rviz)"
       respawn="$(var rviz_respawn)"
     >

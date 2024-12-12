@@ -6,33 +6,33 @@
     pointcloud:
       enable_check: false
       surround_check_front_distance: 0.5
-      surround_check_side_distance: 0.5
-      surround_check_back_distance: 0.5
+      surround_check_side_distance: 0.7 # [Original] 0.5
+      surround_check_back_distance: 1.0 # [Original] 0.5
     unknown:
-      enable_check: false
+      enable_check: true # [Original] false
       surround_check_front_distance: 0.5
-      surround_check_side_distance: 0.5
+      surround_check_side_distance: 0.1 # [Original] 0.5
       surround_check_back_distance: 0.5
     car:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.0
+      surround_check_back_distance: 0.5 # [Original] 0.0
     truck:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.0
+      surround_check_back_distance: 0.5 # [Original] 0.0
     bus:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.0
+      surround_check_back_distance: 0.5 # [Original] 0.00
     trailer:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.0
+      surround_check_back_distance: 0.5 # [Original] 0.0
     motorcycle:
       enable_check: true
       surround_check_front_distance: 0.5
@@ -46,15 +46,15 @@
     pedestrian:
       enable_check: true
       surround_check_front_distance: 0.5
-      surround_check_side_distance: 0.5
+      surround_check_side_distance: 0.2 # [Original] 0.5
       surround_check_back_distance: 0.5
 
-    surround_check_hysteresis_distance: 0.1
+    surround_check_hysteresis_distance: 0.3 # [Original] 0.1
 
-    state_clear_time: 0.2
+    state_clear_time: 1.0 # [Original] 0.2
 
     # ego stop state
-    stop_state_ego_speed: 0.1 #[m/s]
+    stop_state_ego_speed: 0.42 # [Original] 0.1 #[m/s]
 
     # debug
     publish_debug_footprints: true # publish vehicle footprint & footprints with surround_check_distance and surround_check_recover_distance offsets

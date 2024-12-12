@@ -36,13 +36,13 @@
   <arg name="launch_sensing_driver" default="false"/>
   <!-- Tools -->
   <arg name="rviz" default="true" description="launch rviz"/>
-  <arg name="rviz_config" default="$(find-pkg-share autoware_launch)/rviz/autoware.rviz" description="rviz config"/>
+  <arg name="rviz_config" default="$(find-pkg-share autoware_launch_lomby)/rviz/autoware.rviz" description="rviz config"/>
   <group scoped="false" if="$(eval '\'$(var simulator_type)\' == \'carla\'')">
     <include file="$(find-pkg-share autoware_carla_interface)/autoware_carla_interface.launch.xml"/>
   </group>
 
   <group scoped="false">
-    <include file="$(find-pkg-share autoware_launch)/launch/autoware.launch.xml">
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/autoware.launch.xml">
       <!-- Common -->
       <arg name="map_path" value="$(var map_path)"/>
       <arg name="vehicle_model" value="$(var vehicle_model)"/>
@@ -68,7 +68,7 @@
       <!-- System -->
       <arg name="launch_system_monitor" value="$(var launch_system_monitor)"/>
       <arg name="launch_dummy_diag_publisher" value="$(var launch_dummy_diag_publisher)"/>
-      <arg name="diagnostic_graph_aggregator_graph_path" value="$(find-pkg-share autoware_launch)/config/system/diagnostic_graph_aggregator/autoware-awsim.yaml"/>
+      <arg name="diagnostic_graph_aggregator_graph_path" value="$(find-pkg-share autoware_launch_lomby)/config/system/diagnostic_graph_aggregator/autoware-awsim.yaml"/>
       <!-- Sensing -->
       <arg name="launch_sensing_driver" value="$(var launch_sensing_driver)"/>
       <!-- Perception-->

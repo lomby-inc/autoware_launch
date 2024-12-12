@@ -2,7 +2,7 @@
   ros__parameters:
     # -- Node Configurations --
     planning_algorithm: "astar"
-    waypoints_velocity: 5.0
+    waypoints_velocity: 2.0 # [Original] 5.0
     update_rate: 10.0
     th_arrived_distance_m: 0.5
     th_stopped_time_sec: 1.0
@@ -24,8 +24,8 @@
     angle_goal_range: 6.0
     lateral_goal_range: 0.5
     longitudinal_goal_range: 1.0
-    curve_weight: 0.5
-    reverse_weight: 0.7
+    curve_weight: 1.2 # [Original] 0.5
+    reverse_weight: 2.0 # [Original] 0.7
     direction_change_weight: 2.0
     # costmap configs
     obstacle_threshold: 100
@@ -38,7 +38,7 @@
       adapt_expansion_distance: true
       expansion_distance: 0.5
       near_goal_distance: 3.0
-      distance_heuristic_weight: 2.0
+      distance_heuristic_weight: 1.0 # [Original] 2.0
       smoothness_weight: 0.5
       obstacle_distance_weight: 1.75
       goal_lat_distance_weight: 5.0

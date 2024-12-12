@@ -27,7 +27,7 @@
           left: 0.5 # [m] extra length to add to the left of the dynamic object footprint
           right: 0.5 # [m] extra length to add to the rear of the dynamic object footprint
       path_preprocessing:
-        max_arc_length: 100.0 # [m] maximum arc length along the path where the ego footprint is projected (0.0 means no limit)
+        max_arc_length: 50.0 # [Original] 100.0 # [m] maximum arc length along the path where the ego footprint is projected (0.0 means no limit)
         resample_interval: 2.0 # [m] fixed interval between resampled path points (0.0 means path points are directly used)
         reuse_max_deviation: 0.5 # [m] if the path changes by more than this value, the curvatures are recalculated. Otherwise they are reused.
       avoid_linestring:

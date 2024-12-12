@@ -26,4 +26,4 @@
     max_lateral_velocity: 7.0 # [m/s]
 
     # tracking model parameters
-    tracking_config_directory: $(find-pkg-share autoware_launch)/config/perception/object_recognition/tracking/radar_object_tracker/tracking/
+    tracking_config_directory: $(find-pkg-share autoware_launch_lomby)/config/perception/object_recognition/tracking/radar_object_tracker/tracking/
