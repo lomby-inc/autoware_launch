@@ -20,7 +20,7 @@
     enable_steering_rate_limit: true         # To toggle the steer rate filter on and off. You can switch it dynamically at runtime.
     max_steering_angle_rate: 40.0            # [Original] 11.5 # maximum steering angle rate [degree/s]
     resample_ds: 0.1                         # distance between trajectory points [m]
-    curvature_threshold: 0.5                # [Original] 0.02 # if curvature > curvature_threshold, steeringRateLimit is triggered [1/m]
+    curvature_threshold: 0.02                # [Original] 0.02 # if curvature > curvature_threshold, steeringRateLimit is triggered [1/m]
 
     # engage & replan parameters
     replan_vel_deviation: 0.53         # [Original] 5.53 # velocity deviation to replan initial velocity [m/s]
@@ -39,8 +39,8 @@
     delta_yaw_threshold: 1.0472       # Allowed delta yaw between ego pose and trajectory pose [radian]
 
     # resampling parameters for optimization
-    max_trajectory_length: 40.0        # [Original] 200.0 # max trajectory length for resampling [m]
-    min_trajectory_length: 35.0        # [Original] 180.0 # min trajectory length for resampling [m]
+    max_trajectory_length: 200.0        # [Original] 200.0 # max trajectory length for resampling [m]
+    min_trajectory_length: 180.0        # [Original] 180.0 # min trajectory length for resampling [m]
     resample_time: 2.0                  # resample total time for dense sampling [s]
     dense_resample_dt: 0.2              # resample time interval for dense sampling [s]
     dense_min_interval_distance: 0.1    # minimum points-interval length for dense sampling [m]
@@ -48,8 +48,8 @@
     sparse_min_interval_distance: 1.0   # [Original] 4.0 # minimum points-interval length for sparse sampling [m]
 
     # resampling parameters for post process
-    post_max_trajectory_length: 60.0         # [Original] 300.0 # max trajectory length for resampling [m]
-    post_min_trajectory_length: 20.0         # [Original] 30.0 # min trajectory length for resampling [m]
+    post_max_trajectory_length: 300.0         # [Original] 300.0 # max trajectory length for resampling [m]
+    post_min_trajectory_length: 30.0         # [Original] 30.0 # min trajectory length for resampling [m]
     post_resample_time: 10.0                 # resample total time for dense sampling [s]
     post_dense_resample_dt: 0.1              # resample time interval for dense sampling [s]
     post_dense_min_interval_distance: 0.1    # minimum points-interval length for dense sampling [m]
