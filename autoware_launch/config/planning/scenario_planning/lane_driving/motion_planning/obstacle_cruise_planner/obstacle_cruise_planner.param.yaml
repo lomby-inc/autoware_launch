@@ -61,7 +61,7 @@
           pedestrian: false
 
       slow_down_obstacle_type:
-        unknown: false
+        unknown: true
         car: true
         truck: true
         bus: true
@@ -115,8 +115,8 @@
           max_obstacles_collision_time: 5.0 # how far the blocking obstacle
           stopped_obstacle_velocity_threshold: 0.5
       slow_down:
-        max_lat_margin: 0.6 # lateral margin between obstacle and trajectory band with ego's width
-        lat_hysteresis_margin: 0.2
+        max_lat_margin: 1.2 # lateral margin between obstacle and trajectory band with ego's width
+        lat_hysteresis_margin: 0.3
 
         successive_num_to_entry_slow_down_condition: 5
         successive_num_to_exit_slow_down_condition: 5
@@ -199,12 +199,12 @@
       default:
         moving:
           min_lat_margin: 0.2
-          max_lat_margin: 1.0
+          max_lat_margin: 1.2
           min_ego_velocity: 0.6
           max_ego_velocity: 1.7
         static:
           min_lat_margin: 0.2
-          max_lat_margin: 1.0
+          max_lat_margin: 1.2
           min_ego_velocity: 0.6 # [Original] 4.0
           max_ego_velocity: 1.7
 

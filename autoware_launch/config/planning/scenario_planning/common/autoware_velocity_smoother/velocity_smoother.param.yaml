@@ -34,13 +34,13 @@
     stopping_distance: 0.30    # [Original] 0 # distance for the stopping_velocity [m]. 0 means the stopping velocity is not applied.
 
     # path extraction parameters
-    extract_ahead_dist: 40.0          # [Original] 200.0 # forward trajectory distance used for planning [m]
+    extract_ahead_dist: 20.0          # [Original] 200.0 # forward trajectory distance used for planning [m]
     extract_behind_dist: 5.0          # backward trajectory distance used for planning [m]
     delta_yaw_threshold: 1.0472       # Allowed delta yaw between ego pose and trajectory pose [radian]
 
     # resampling parameters for optimization
-    max_trajectory_length: 200.0        # [Original] 200.0 # max trajectory length for resampling [m]
-    min_trajectory_length: 180.0        # [Original] 180.0 # min trajectory length for resampling [m]
+    max_trajectory_length: 20.0        # [Original] 200.0 # max trajectory length for resampling [m]
+    min_trajectory_length: 18.0        # [Original] 180.0 # min trajectory length for resampling [m]
     resample_time: 2.0                  # resample total time for dense sampling [s]
     dense_resample_dt: 0.2              # resample time interval for dense sampling [s]
     dense_min_interval_distance: 0.1    # minimum points-interval length for dense sampling [m]
@@ -48,8 +48,8 @@
     sparse_min_interval_distance: 1.0   # [Original] 4.0 # minimum points-interval length for sparse sampling [m]
 
     # resampling parameters for post process
-    post_max_trajectory_length: 300.0         # [Original] 300.0 # max trajectory length for resampling [m]
-    post_min_trajectory_length: 30.0         # [Original] 30.0 # min trajectory length for resampling [m]
+    post_max_trajectory_length: 30.0         # [Original] 300.0 # max trajectory length for resampling [m]
+    post_min_trajectory_length: 3.0         # [Original] 30.0 # min trajectory length for resampling [m]
     post_resample_time: 10.0                 # resample total time for dense sampling [s]
     post_dense_resample_dt: 0.1              # resample time interval for dense sampling [s]
     post_dense_min_interval_distance: 0.1    # minimum points-interval length for dense sampling [m]
