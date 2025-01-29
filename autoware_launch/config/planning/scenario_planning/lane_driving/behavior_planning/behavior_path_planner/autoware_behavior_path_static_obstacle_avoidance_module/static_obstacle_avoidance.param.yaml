@@ -234,7 +234,7 @@
           min_prepare_time: 1.0                         # [s]
           max_prepare_time: 3.0                         # [s]
           min_prepare_distance: 1.0                     # [m]
-          min_slow_down_speed: 1.38                     # [m/s]
+          min_slow_down_speed: 0.38                     # [Original] 1.38 # [m/s]
           buf_slow_down_speed: 0.56                     # [m/s] FOR DEVELOPER
           nominal_avoidance_speed: 8.33                 # [m/s] FOR DEVELOPER
           consider_front_overhang: true                 # [-]
@@ -261,7 +261,7 @@
 
       # For stop maneuver
       stop:
-        max_distance: 20.0                              # [m]
+        max_distance: 3.0                              # [Original] 20.0 # [m]
         stop_buffer: 1.0                                # [m] FOR DEVELOPER
 
       policy:
