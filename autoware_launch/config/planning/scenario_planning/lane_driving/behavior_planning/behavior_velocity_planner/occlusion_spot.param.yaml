@@ -6,7 +6,7 @@
       use_object_info: true                 # [-] whether to reflect object info to occupancy grid map or not
       use_moving_object_ray_cast: true      # [-] whether to reflect moving object ray shadow grid map
       use_partition_lanelet: true           # [-] whether to use partition lanelet map data
-      pedestrian_vel: 1.5                   # [m/s] assume pedestrian is dashing from occlusion at this velocity
+      pedestrian_vel: 1.7                   # [m/s] assume pedestrian is dashing from occlusion at this velocity
       pedestrian_radius: 0.3                # [m] assume pedestrian width(0.2m) + margin(0.1m)
       debug:                                # !Note: default should be false for performance
         is_show_occlusion: false            # [-] whether to show occlusion point markers.
@@ -14,9 +14,9 @@
         is_show_processing_time: false      # [-] whether to show processing time
       threshold:
         detection_area_offset: 30.0
-        detection_area_length: 100.0        # [m] the length of path to consider perception range
-        stuck_vehicle_vel: 1.0              # [m/s] velocity below this value is assumed to stop
-        lateral_distance: 1.5               # [m] maximum lateral distance to consider hidden collision
+        detection_area_length: 15.0        # [m] the length of path to consider perception range
+        stuck_vehicle_vel: 0.2              # [m/s] velocity below this value is assumed to stop
+        lateral_distance: 1.2               # [m] maximum lateral distance to consider hidden collision
         search_dist: 10.0
         search_angle: 0.63                  # [rad] PI/5.0
       motion:

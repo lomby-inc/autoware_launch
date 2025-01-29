@@ -67,10 +67,10 @@ launch:
       default: "true"
   - arg:
       name: launch_occlusion_spot_module
-      default: "false"
+      default: "true"
   - arg:
       name: launch_run_out_module
-      default: "false"
+      default: "true"
   - arg:
       name: launch_speed_bump_module
       default: "false"
