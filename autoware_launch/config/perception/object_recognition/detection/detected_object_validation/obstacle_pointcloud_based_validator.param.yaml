@@ -2,7 +2,7 @@
   ros__parameters:
     min_points_num:
     #UNKNOWN, CAR, TRUCK, BUS, TRAILER, MOTORBIKE, BICYCLE, PEDESTRIAN
-      [10,     10,  10,    10,     10,     10,      10,         10]
+      [2,     10,  10,    10,     10,     10,      10,         2]
 
     max_points_num:
     #UNKNOWN, CAR, TRUCK, BUS, TRAILER, MOTORBIKE, BICYCLE, PEDESTRIAN

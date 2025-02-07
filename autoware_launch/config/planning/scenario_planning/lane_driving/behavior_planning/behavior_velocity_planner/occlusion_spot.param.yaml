@@ -6,7 +6,7 @@
       use_object_info: true                 # [-] whether to reflect object info to occupancy grid map or not
       use_moving_object_ray_cast: true      # [-] whether to reflect moving object ray shadow grid map
       use_partition_lanelet: true           # [-] whether to use partition lanelet map data
-      pedestrian_vel: 1.7                   # [m/s] assume pedestrian is dashing from occlusion at this velocity
+      pedestrian_vel: 2.0                   # [m/s] assume pedestrian is dashing from occlusion at this velocity
       pedestrian_radius: 0.3                # [m] assume pedestrian width(0.2m) + margin(0.1m)
       debug:                                # !Note: default should be false for performance
         is_show_occlusion: false            # [-] whether to show occlusion point markers.
@@ -14,7 +14,7 @@
         is_show_processing_time: false      # [-] whether to show processing time
       threshold:
         detection_area_offset: 30.0
-        detection_area_length: 15.0        # [m] the length of path to consider perception range
+        detection_area_length: 20.0        # [m] the length of path to consider perception range
         stuck_vehicle_vel: 0.2              # [m/s] velocity below this value is assumed to stop
         lateral_distance: 1.2               # [m] maximum lateral distance to consider hidden collision
         search_dist: 10.0
@@ -26,12 +26,12 @@
         non_effective_jerk: -0.3            # [m/s^3] weak jerk for velocity planning.
         non_effective_acceleration: -1.0    # [m/s^2] weak deceleration for velocity planning.
         min_allowed_velocity: 1.0           # [m/s] minimum velocity allowed
-        safe_margin: 2.0                    # [m] margin for detection failure(0.5m) + pedestrian radius(0.5m) + safe margin(1.0m)
+        safe_margin: 3.0                    # [m] margin for detection failure(0.5m) + pedestrian radius(0.5m) + safe margin(1.0m)
       detection_area:
         min_occlusion_spot_size: 1.0     # [m] occupancy grid must contain an UNKNOWN area of at least size NxN to be considered a hidden obstacle.
         slice_length: 10.0               # [m] size of slices in both length and distance relative to the ego path.
         min_longitudinal_offset: 1.0     # [m] detection area safety buffer from front bumper.
-        max_lateral_distance: 5.0        # [m] buffer around the ego path used to build the detection area.
+        max_lateral_distance: 7.0        # [m] buffer around the ego path used to build the detection area.
       grid:
         free_space_max: 43  # [-] maximum value of a free space cell in the occupancy grid
         occupied_min: 57    # [-] minimum value of an occupied cell in the occupancy grid
