@@ -7,10 +7,10 @@
 
     common_crop_box_filter:
       parameters:
-        min_x: -50.0
-        max_x: 50.0
-        min_y: -40.0
-        max_y: 40.0
+        min_x: -30.0
+        max_x: 30.0
+        min_y: -10.0
+        max_y: 10.0
         margin_max_z: 0.2  # [Original] 0.0 # to extend the crop box max_z from vehicle_height
         margin_min_z: -2.5 # to extend the crop box min_z from ground
         negative: false

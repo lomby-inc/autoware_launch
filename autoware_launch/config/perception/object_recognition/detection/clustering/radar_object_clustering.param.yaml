@@ -1,7 +1,7 @@
 /**:
   ros__parameters:
     # clustering parameter
-    angle_threshold: 0.174 # [rad] (10 deg)
+    angle_threshold: 0.087 # [rad] (5 deg) default 0.174 (10 deg)
     distance_threshold: 10.0 # [m]
     velocity_threshold: 4.0 # [m/s]
 
@@ -11,5 +11,5 @@
     fixed_label: "CAR"
     is_fixed_size: true
     size_x: 4.0 # [m]
-    size_y: 1.5 # [m]
+    size_y: 1.2 # [m]
     size_z: 1.5 # [m]
