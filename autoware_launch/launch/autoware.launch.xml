@@ -22,6 +22,7 @@
   <arg name="launch_planning" default="true" description="launch planning"/>
   <arg name="launch_control" default="true" description="launch control"/>
   <arg name="launch_api" default="true" description="launch api"/>
+  <arg name="launch_stand_alone_systems" default="true" description="launch stand alone systems"/>
   <!-- Global parameters -->
   <arg name="use_sim_time" default="false" description="use_sim_time"/>
   <!-- Vehicle -->
@@ -144,5 +145,9 @@
     >
       <env name="QT_QPA_PLATFORMTHEME" value="qt5ct"/>
     </node>
+  </group>
+
+  <group if="$(var launch_stand_alone_systems)">
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/stand_alone_systems.launch.xml"/>
   </group>
 </launch>
