@@ -36,8 +36,8 @@
     maximum_cluster_size: 10000
 
     # RSS distance collision check
-    longitudinal_offset: 0.5  # [Original] 2.0
-    t_response: 0.5 # [Original] 1.0
+    longitudinal_offset: 1.0  # [Original] 2.0
+    t_response: 1.0 # [Original] 1.0
     a_ego_min: -3.0
     a_obj_min: -1.0
     collision_keeping_sec: 2.0
