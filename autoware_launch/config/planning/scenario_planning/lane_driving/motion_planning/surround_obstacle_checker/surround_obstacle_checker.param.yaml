@@ -12,42 +12,42 @@
       enable_check: true # [Original] false
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.1 # [Original] 0.5
-      surround_check_back_distance: 0.5
+      surround_check_back_distance: 0.0
     car:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.5 # [Original] 0.0
+      surround_check_back_distance: 0.0 # [Original] 0.0
     truck:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.5 # [Original] 0.0
+      surround_check_back_distance: 0.0 # [Original] 0.0
     bus:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.5 # [Original] 0.00
+      surround_check_back_distance: 0.0 # [Original] 0.00
     trailer:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.5 # [Original] 0.0
+      surround_check_back_distance: 0.0 # [Original] 0.0
     motorcycle:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.0
-      surround_check_back_distance: 0.5
+      surround_check_back_distance: 0.0
     bicycle:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.5
-      surround_check_back_distance: 0.5
+      surround_check_back_distance: 0.0
     pedestrian:
       enable_check: true
       surround_check_front_distance: 0.5
       surround_check_side_distance: 0.2 # [Original] 0.5
-      surround_check_back_distance: 0.5
+      surround_check_back_distance: 0.0
 
     surround_check_hysteresis_distance: 0.3 # [Original] 0.1
 
