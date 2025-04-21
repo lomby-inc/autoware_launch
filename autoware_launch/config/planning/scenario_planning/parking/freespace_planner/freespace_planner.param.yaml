@@ -18,7 +18,7 @@
     time_limit: 30000.0
     # robot configs # TODO replace by vehicle_info
     max_turning_ratio: 0.6 # ratio of actual turning limit of vehicle
-    turning_steps: 5
+    turning_steps: 4
     # search configs
     theta_size: 60
     angle_goal_range: 0.1
@@ -40,7 +40,7 @@
       near_goal_distance: 0.0
       distance_heuristic_weight: 1.0 # [Original] 2.0
       smoothness_weight: 0.9
-      obstacle_distance_weight: 1.75
+      obstacle_distance_weight: 2.0
       goal_lat_distance_weight: 5.0
 
     # -- RRT* search Configurations --
