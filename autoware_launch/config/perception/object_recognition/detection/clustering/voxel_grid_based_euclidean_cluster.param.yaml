@@ -1,6 +1,6 @@
 /**:
   ros__parameters:
-    tolerance: 0.4
+    tolerance: 0.9
     voxel_leaf_size: 0.05
     min_points_number_per_voxel: 1
     min_cluster_size: 2
