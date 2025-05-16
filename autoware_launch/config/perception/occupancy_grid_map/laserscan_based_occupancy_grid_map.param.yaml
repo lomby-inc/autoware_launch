@@ -13,9 +13,9 @@
       max_height: 2.0
 
     enable_single_frame_mode: false
-    map_length: 150.0
-    map_width: 150.0
-    map_resolution: 0.5
+    map_length: 20.0
+    map_width: 20.0
+    map_resolution: 0.20
 
     # debug parameters
     publish_processing_time_detail: false
