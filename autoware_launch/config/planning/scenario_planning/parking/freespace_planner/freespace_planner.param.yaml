@@ -18,7 +18,7 @@
     time_limit: 30000.0
     # robot configs # TODO replace by vehicle_info
     max_turning_ratio: 0.6 # ratio of actual turning limit of vehicle
-    turning_steps: 5
+    turning_steps: 4
     # search configs
     theta_size: 60
     angle_goal_range: 0.1
@@ -28,7 +28,7 @@
     reverse_weight: 0.1 # [Original] 0.7
     direction_change_weight: 1.5
     # costmap configs
-    obstacle_threshold: 100
+    obstacle_threshold: 101
 
     # -- A* search Configurations --
     astar:
