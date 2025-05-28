@@ -15,9 +15,9 @@
     map_frame_: "map"
     base_link_frame_: "base_link"
     grid_map_origin_frame_: "base_link"
-    fusion_map_length_x: 100.0
-    fusion_map_length_y: 100.0
-    fusion_map_resolution: 0.5
+    fusion_map_length_x: 20.0
+    fusion_map_length_y: 20.0
+    fusion_map_resolution: 0.20
 
     # debug parameters
     publish_processing_time_detail: false

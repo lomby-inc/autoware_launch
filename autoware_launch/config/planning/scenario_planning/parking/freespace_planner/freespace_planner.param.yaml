@@ -28,7 +28,7 @@
     reverse_weight: 0.1 # [Original] 0.7
     direction_change_weight: 1.5
     # costmap configs
-    obstacle_threshold: 100
+    obstacle_threshold: 101
 
     # -- A* search Configurations --
     astar:
