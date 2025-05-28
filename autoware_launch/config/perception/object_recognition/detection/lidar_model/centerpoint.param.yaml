@@ -19,3 +19,4 @@
     densification_params:
       world_frame_id: map
       num_past_frames: 4
+
