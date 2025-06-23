@@ -45,11 +45,11 @@
   <!-- Perception -->
   <arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
   <arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/>
+  <arg name="image_raw0" default="/sensing/trafficlight_camera/image_rect" description="image raw topic name"/>
+  <arg name="camera_info0" default="/sensing/trafficlight_camera/camera_info" description="camera info topic name"/>
   <!-- Auto mode setting-->
   <arg name="enable_all_modules_auto_mode" default="false" description="enable all module's auto mode"/>
   <arg name="is_simulation" default="false" description="Autoware's behavior will change depending on whether this is a simulation or not."/>
-  <arg name="image_raw0" default="/sensing/trafficlight_camera/image_rect" description="image raw topic name"/>
-  <arg name="camera_info0" default="/sensing/trafficlight_camera/camera_info" description="camera info topic name"/>
 
   <!-- Global parameters -->
   <group scoped="false">
@@ -97,7 +97,7 @@
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_localization_component.launch.xml">
       <!-- select pose_estimator: ndt, yabloc, eagleye -->
       <arg name="pose_source" value="ndt"/>
-      <!-- "select twist_estimator. gyro_odom, eagleye" -->
+      <!-- select twist_estimator. gyro_odom, eagleye -->
       <arg name="twist_source" value="gyro_odom"/>
       <!-- The topic will be used in the localization util module -->
       <arg name="input_pointcloud" value="/sensing/lidar/concatenated/pointcloud"/>
@@ -119,6 +119,12 @@
       <arg name="module_preset" value="$(var planning_module_preset)"/>
       <arg name="enable_all_modules_auto_mode" value="$(var enable_all_modules_auto_mode)"/>
       <arg name="is_simulation" value="$(var is_simulation)"/>
+      <!-- Select global planning mode. autoware, nav2_planning -->
+      <arg name="global_planning" value="autoware"/>
+      <!-- Select behavior component mode. autoware, nav2_bt -->
+      <arg name="behavior_component" value="autoware"/>
+      <!-- Select local planning mode. autoware, nav2_controller -->
+      <arg name="local_planning" value="nav2_controller"/>
     </include>
   </group>
 
