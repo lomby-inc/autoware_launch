@@ -3,7 +3,7 @@
     enable_delay_compensation: true
     prediction_time_horizon:
       vehicle: 5.0 #[s]
-      pedestrian: 5.0 #[s]
+      pedestrian: 3.5 #[s]
       unknown: 5.0 #[s]
     lateral_control_time_horizon: 5.0 #[s]
     prediction_sampling_delta_time: 0.5 #[s]
