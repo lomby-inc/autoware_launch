@@ -219,33 +219,17 @@ Visualization Manager:
           Use rainbow: false
           Value: false
         - Class: rviz_default_plugins/MarkerArray
-          Enabled: true
+          Enabled: false
           Name: Lanelet2VectorMap
           Namespaces:
-            center_lane_line: false
-            center_line_arrows: false
-            detection_area: true
-            detection_area_stopline: true
-            lane_start_bound: false
-            lanelet direction: true
-            lanelet_id: false
-            left_lane_bound: true
-            parking_lots: true
-            parking_space: true
-            right_lane_bound: true
-            road_lanelets: false
-            stop_lines: true
-            traffic_light: true
-            traffic_light_id: false
-            traffic_light_reg_elem_id: false
-            traffic_light_triangle: true
+            {}
           Topic:
             Depth: 5
             Durability Policy: Transient Local
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /map/vector_map_marker
-          Value: true
+          Value: false
       Enabled: true
       Name: Map
     - Class: rviz_common/Group
@@ -894,10 +878,10 @@ Visualization Manager:
                 Alpha: 1
                 Color: 230; 230; 50
                 Offset from BaseLink: 0
-                Rear Overhang: 1.0299999713897705
+                Rear Overhang: 0.20000000298023224
                 Value: false
-                Vehicle Length: 4.769999980926514
-                Vehicle Width: 1.8300000429153442
+                Vehicle Length: 0.8379999995231628
+                Vehicle Width: 0.5759999752044678
               View Path:
                 Alpha: 0.9990000128746033
                 Color: 0; 0; 0
@@ -948,10 +932,10 @@ Visualization Manager:
                         Alpha: 1
                         Color: 230; 230; 50
                         Offset from BaseLink: 0
-                        Rear Overhang: 1.0299999713897705
+                        Rear Overhang: 0.20000000298023224
                         Value: false
-                        Vehicle Length: 4.769999980926514
-                        Vehicle Width: 1.8300000429153442
+                        Vehicle Length: 0.8379999995231628
+                        Vehicle Width: 0.5759999752044678
                       View Path:
                         Alpha: 0.4000000059604645
                         Color: 0; 0; 0
@@ -1598,10 +1582,10 @@ Visualization Manager:
                         Alpha: 1
                         Color: 230; 230; 50
                         Offset from BaseLink: 0
-                        Rear Overhang: 1.0299999713897705
+                        Rear Overhang: 0.20000000298023224
                         Value: false
-                        Vehicle Length: 4.769999980926514
-                        Vehicle Width: 1.8300000429153442
+                        Vehicle Length: 0.8379999995231628
+                        Vehicle Width: 0.5759999752044678
                       View Path:
                         Alpha: 0.30000001192092896
                         Color: 115; 210; 22
@@ -2812,10 +2796,10 @@ Visualization Manager:
             Alpha: 1
             Color: 230; 230; 50
             Offset from BaseLink: 0
-            Rear Overhang: 1.0299999713897705
+            Rear Overhang: 0.20000000298023224
             Value: false
-            Vehicle Length: 4.769999980926514
-            Vehicle Width: 1.8300000429153442
+            Vehicle Length: 0.8379999995231628
+            Vehicle Width: 0.5759999752044678
           View Path:
             Alpha: 1
             Color: 255; 255; 255
@@ -2971,7 +2955,6 @@ Visualization Manager:
                 Value: /sensing/camera/camera6/image_raw
               Value: true
               Visibility:
-                "": true
                 Control:
                   Debug/AEB: true
                   Debug/MPC: true
@@ -2984,42 +2967,15 @@ Visualization Manager:
                 Debug:
                   Control: true
                   Localization:
-                    EKFPoseHistory: true
-                    NDT pointclouds: true
-                    NDTLoadedPCDMap: true
-                    NDTPoseHistory: true
+                    "": true
                     Value: true
                   Map: true
                   Perception:
-                    CameraLidarFusion(purple): true
-                    Centerpoint(red1): true
-                    CenterpointROIFusion(red2): true
-                    CenterpointValidator(red3): true
-                    Detection(yellow): true
-                    DetectionByTracker(orange): true
-                    PointPainting(light_green1): true
-                    PointPaintingROIFusion(light_green2): true
-                    PointPaintingValidator(light_green3): true
-                    Prediction(light_blue): true
-                    RadarFarObjects(white): true
-                    Tracking(green): true
+                    "": true
                     Value: true
                   Planning:
-                    Objects Of Interest:
-                      AvoidanceByLCLeft: true
-                      AvoidanceByLCRight: true
-                      AvoidanceLeft: true
-                      AvoidanceRight: true
-                      BlindSpot: true
-                      Crosswalk: true
-                      DetectionArea: true
-                      GoalPlanner: true
-                      Intersection: true
-                      LaneChangeLeft: true
-                      LaneChangeRight: true
-                      NoStoppingArea: true
-                      StartPlanner: true
-                      TrafficLight: true
+                    "":
+                      "": true
                       Value: true
                     Value: true
                   Sensing:
@@ -3044,6 +3000,7 @@ Visualization Manager:
                   Lanelet2VectorMap: true
                   PointCloudMap: true
                   Value: false
+                MarkerArray: true
                 Perception:
                   ObjectRecognition:
                     Detection:
@@ -4263,6 +4220,35 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /lomby/planning/mission_planning/route_marker
       Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        center_lane_line: false
+        center_line_arrows: false
+        detection_area: true
+        detection_area_stopline: true
+        lane_start_bound: false
+        lanelet direction: true
+        lanelet_id: false
+        left_lane_bound: true
+        parking_lots: true
+        parking_space: true
+        partitions: true
+        right_lane_bound: true
+        road_lanelets: true
+        stop_lines: true
+        traffic_light: true
+        traffic_light_id: false
+        traffic_light_reg_elem_id: false
+        traffic_light_triangle: true
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /lomby/map/vector_map_marker
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 15; 20; 23
@@ -4301,59 +4287,7 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /rviz/routing/rough_goal
-    - Acceleration: 0
-      Class: rviz_plugins/PedestrianInitialPoseTool
-      Interactive: false
-      Max velocity: 33.29999923706055
-      Min velocity: -33.29999923706055
-      Pose Topic: /simulation/dummy_perception_publisher/object_info
-      Target Frame: <Fixed Frame>
-      Theta std deviation: 0.0872664600610733
-      Velocity: 0
-      X std deviation: 0.029999999329447746
-      Y std deviation: 0.029999999329447746
-      Z position: 1
-      Z std deviation: 0.029999999329447746
-    - Acceleration: 0
-      Class: rviz_plugins/CarInitialPoseTool
-      H vehicle height: 2
-      Interactive: false
-      L vehicle length: 4
-      Max velocity: 33.29999923706055
-      Min velocity: -33.29999923706055
-      Pose Topic: /simulation/dummy_perception_publisher/object_info
-      Target Frame: <Fixed Frame>
-      Theta std deviation: 0.0872664600610733
-      Velocity: 3
-      W vehicle width: 1.7999999523162842
-      X std deviation: 0.029999999329447746
-      Y std deviation: 0.029999999329447746
-      Z position: 0
-      Z std deviation: 0.029999999329447746
-    - Acceleration: 0
-      Class: rviz_plugins/BusInitialPoseTool
-      H vehicle height: 3.5
-      Interactive: false
-      L vehicle length: 10.5
-      Max velocity: 33.29999923706055
-      Min velocity: -33.29999923706055
-      Pose Topic: /simulation/dummy_perception_publisher/object_info
-      Target Frame: <Fixed Frame>
-      Theta std deviation: 0.0872664600610733
-      Velocity: 0
-      W vehicle width: 2.5
-      X std deviation: 0.029999999329447746
-      Y std deviation: 0.029999999329447746
-      Z position: 0
-      Z std deviation: 0.029999999329447746
-    - Class: rviz_plugins/MissionCheckpointTool
-      Pose Topic: /planning/mission_planning/checkpoint
-      Theta std deviation: 0.2617993950843811
-      X std deviation: 0.5
-      Y std deviation: 0.5
-      Z position: 0
-    - Class: rviz_plugins/DeleteAllObjectsTool
-      Pose Topic: /simulation/dummy_perception_publisher/object_info
+    - Class: lomby_rviz2_plugins/PointTool
   Transformation:
     Current:
       Class: rviz_default_plugins/TF
@@ -4370,7 +4304,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 10
+      Scale: 7.150831699371338
       Target Frame: viewer
       Value: TopDownOrtho (rviz_default_plugins)
       X: 0
@@ -4425,7 +4359,7 @@ Window Geometry:
     collapsed: false
   PointcloudOnCamera:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001ee00000395fc020000000ffb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005500fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001a005000610074006800530069006d0075006c00610074006f00720100000042000001280000011500fffffffb00000024004100750074006f00770061007200650053007400610074006500500061006e0065006c01000001790000025e0000006700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d0065007200610100000682000000eb0000000000000000fb0000000a0049006d0061006700650100000505000002680000000000000000fb0000002c0049006e0069007400690061006c0050006f007300650042007500740074006f006e00500061006e0065006c000000068f000000de0000000000000000fb0000002c0049006e0069007400690061006c0050006f007300650042007500740074006f006e00500061006e0065006c000000068f000000de0000000000000000fb00000030005200650063006f0067006e006900740069006f006e0052006500730075006c0074004f006e0049006d00610067006500000002de000000f90000003100fffffffb0000002a004100750074006f0077006100720065004400610074006500540069006d006500500061006e0065006c0000000332000000720000004900fffffffb000000240050006f0069006e00740063006c006f00750064004f006e00430061006d006500720061000000039d000000560000003100ffffff00000001000001ab00000395fc0200000004fb000000100044006900730070006c00610079007301000000420000013a000000d200fffffffc0000018b0000024c000000c20100001dfa000000000100000002fb0000000a0056006900650077007301000005d5000001ab0000019b00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000000ffffffff0000009600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000e7a0000005afc0100000001fb0000000a00560069006500770073030000004e00000080000002e1000001970000000300000e7a0000005afc0100000002fb0000000800540069006d0065010000000000000e7a0000000000000000fb0000000800540069006d00650100000000000004500000000000000000000003830000039500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001ee00000395fc020000000ffb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005500fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001a005000610074006800530069006d0075006c00610074006f007201000000420000015d0000015d00fffffffb00000024004100750074006f00770061007200650053007400610074006500500061006e0065006c01000001ae000002290000006700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d0065007200610100000682000000eb0000000000000000fb0000000a0049006d0061006700650100000505000002680000000000000000fb0000002c0049006e0069007400690061006c0050006f007300650042007500740074006f006e00500061006e0065006c000000068f000000de0000000000000000fb0000002c0049006e0069007400690061006c0050006f007300650042007500740074006f006e00500061006e0065006c000000068f000000de0000000000000000fb00000030005200650063006f0067006e006900740069006f006e0052006500730075006c0074004f006e0049006d00610067006500000002de000000f90000003100fffffffb0000002a004100750074006f0077006100720065004400610074006500540069006d006500500061006e0065006c0000000332000000720000004900fffffffb000000240050006f0069006e00740063006c006f00750064004f006e00430061006d006500720061000000039d000000560000003100ffffff00000001000001ab00000395fc0200000004fb000000100044006900730070006c00610079007301000000420000013a000000d200fffffffc0000018b0000024c000000c20100001dfa000000000100000002fb0000000a0056006900650077007301000005d5000001ab0000019b00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000000ffffffff0000009600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000e7a0000005afc0100000001fb0000000a00560069006500770073030000004e00000080000002e1000001970000000300000e7a0000005afc0100000002fb0000000800540069006d0065010000000000000e7a0000000000000000fb0000000800540069006d00650100000000000004500000000000000000000003830000039500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RecognitionResultOnImage:
     collapsed: false
   Selection:
