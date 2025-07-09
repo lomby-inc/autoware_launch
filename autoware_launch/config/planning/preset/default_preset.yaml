@@ -2,7 +2,7 @@ launch:
   # behavior path modules
   - arg:
       name: launch_static_obstacle_avoidance
-      default: "true"
+      default: "false"
   - arg:
       name: launch_avoidance_by_lane_change_module
       default: "false"
@@ -105,7 +105,7 @@ launch:
 
   - arg:
       name: motion_stop_planner_type
-      default: obstacle_cruise_planner
+      default: obstacle_stop_planner
       # option: obstacle_stop_planner
       #         obstacle_cruise_planner
       #         none
