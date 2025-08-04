@@ -84,7 +84,10 @@
 
   <!-- Map -->
   <group if="$(var launch_map)">
-    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_map_component.launch.xml"/>
+    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_map_component.launch.xml">
+      <!-- Select Vector map node. lanelet, linestring -->
+      <arg name="vector_map_type" value="lanelet"/>
+    </include>
   </group>
 
   <!-- Sensing -->
