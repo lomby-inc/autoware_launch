@@ -86,7 +86,7 @@
   <group if="$(var launch_map)">
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_map_component.launch.xml">
       <!-- Select Vector map node. lanelet, linestring -->
-      <arg name="vector_map_type" value="lanelet"/>
+      <arg name="vector_map_type" value="linestring"/>
     </include>
   </group>
 
@@ -124,11 +124,11 @@
       <arg name="enable_all_modules_auto_mode" value="$(var enable_all_modules_auto_mode)"/>
       <arg name="is_simulation" value="$(var is_simulation)"/>
       <!-- Select global planning mode. autoware, nav2_planning -->
-      <arg name="global_planning" value="autoware"/>
+      <arg name="global_planning" value="nav2_planning"/>
       <!-- Select behavior component mode. autoware, nav2_bt -->
-      <arg name="behavior_component" value="autoware"/>
+      <arg name="behavior_component" value="nav2_bt"/>
       <!-- Select local planning mode. autoware, nav2_controller -->
-      <arg name="local_planning" value="autoware"/>
+      <arg name="local_planning" value="nav2_controller"/>
     </include>
   </group>
 
