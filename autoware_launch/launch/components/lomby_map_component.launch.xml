@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+  <arg name="vector_map_type" default="lanelet"/>
   <include file="$(find-pkg-share tier4_map_launch)/launch/map.launch.xml">
     <arg name="pointcloud_map_path" value="$(var map_path)/$(var pointcloud_map_file)"/>
     <arg name="pointcloud_map_metadata_path" value="$(var map_path)/pointcloud_map_metadata.yaml"/>
