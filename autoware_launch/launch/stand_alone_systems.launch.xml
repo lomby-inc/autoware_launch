@@ -3,8 +3,8 @@
   <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
   <group>
     <include file="$(find-pkg-share lomby_api)/launch/base_apis.launch.py"/>
-    <include file="$(find-pkg-share zero_mq_converter)/launch/zero_converter_drive_train.launch.py"/>
     <include file="$(find-pkg-share lomby_sound_manager)/launch/sound.launch.py"/>
+    <include file="$(find-pkg-share lomby_zeromq_ros2_bridge)/launch/zeromq_ros2_bridge.launch.py"/>
     <node pkg="lomby_usb_qr_driver" name="usb_qr_driver" exec="usb_qr_driver" /> 
     <node pkg="lomby_usb_sevenseg_driver" name="usb_sevenseg_driver" exec="usb_sevenseg_driver" />
     <node pkg="lomby_remote_monitoring_camera_manager" name="remote_monitoring_camera_controller" exec="remote_monitoring_camera_controller" /> 
