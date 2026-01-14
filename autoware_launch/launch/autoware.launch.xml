@@ -112,7 +112,7 @@
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
       <arg name="use_traffic_light_recognition" value="false"/>
-      <arg name="use_empty_dynamic_object_publisher" value="false"/>
+      <arg name="use_empty_dynamic_object_publisher" value="true"/>
       <arg name="is_simulation" value="$(var is_simulation)"/>
     </include>
   </group>
@@ -138,9 +138,7 @@
   </group>
 
   <!-- API -->
-  <group>
-    <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_autoware_api_component.launch.xml"/>
-  </group>
+
 
   <!-- Tools -->
   <group>
