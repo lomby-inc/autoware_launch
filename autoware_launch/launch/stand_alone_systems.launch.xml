@@ -9,5 +9,6 @@
     <node pkg="lomby_usb_sevenseg_driver" name="usb_sevenseg_driver" exec="usb_sevenseg_driver" />
     <node pkg="lomby_remote_monitoring_camera_manager" name="remote_monitoring_camera_controller" exec="remote_monitoring_camera_controller" />
     <node pkg="lomby_drive_scenario_loader" name="autoware_v1_autonomous_driving_commander" exec="autoware_v1_autonomous_driving_commander" />
+    <node pkg="lomby_localization_checker" name="lomby_localization_checker" exec="lomby_localization_checker" />
   </group>
 </launch>
