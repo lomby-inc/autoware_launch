@@ -818,7 +818,11 @@ Visualization Manager:
               Enabled: true
               Name: RouteArea
               Namespaces:
-                {}
+                goal_lanelets: true
+                lane_start_bound: true
+                left_lane_bound: true
+                right_lane_bound: true
+                route_lanelets: true
               Topic:
                 Depth: 5
                 Durability Policy: Transient Local
@@ -878,10 +882,10 @@ Visualization Manager:
                 Alpha: 1
                 Color: 230; 230; 50
                 Offset from BaseLink: 0
-                Rear Overhang: 0.20000000298023224
+                Rear Overhang: 0.15700000524520874
                 Value: false
-                Vehicle Length: 0.8379999995231628
-                Vehicle Width: 0.5759999752044678
+                Vehicle Length: 0.9800000190734863
+                Vehicle Width: 0.6380000114440918
               View Path:
                 Alpha: 0.9990000128746033
                 Color: 0; 0; 0
@@ -932,10 +936,10 @@ Visualization Manager:
                         Alpha: 1
                         Color: 230; 230; 50
                         Offset from BaseLink: 0
-                        Rear Overhang: 0.20000000298023224
+                        Rear Overhang: 0.15700000524520874
                         Value: false
-                        Vehicle Length: 0.8379999995231628
-                        Vehicle Width: 0.5759999752044678
+                        Vehicle Length: 0.9800000190734863
+                        Vehicle Width: 0.6380000114440918
                       View Path:
                         Alpha: 0.4000000059604645
                         Color: 0; 0; 0
@@ -1921,7 +1925,8 @@ Visualization Manager:
                           Enabled: true
                           Name: VirtualWall (StopLine)
                           Namespaces:
-                            {}
+                            67541_stop_factor_text: true
+                            67541_stop_virtual_wall: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2796,10 +2801,10 @@ Visualization Manager:
             Alpha: 1
             Color: 230; 230; 50
             Offset from BaseLink: 0
-            Rear Overhang: 0.20000000298023224
+            Rear Overhang: 0.15700000524520874
             Value: false
-            Vehicle Length: 0.8379999995231628
-            Vehicle Width: 0.5759999752044678
+            Vehicle Length: 0.9800000190734863
+            Vehicle Width: 0.6380000114440918
           View Path:
             Alpha: 1
             Color: 255; 255; 255
@@ -2974,8 +2979,21 @@ Visualization Manager:
                     "": true
                     Value: true
                   Planning:
-                    "":
-                      "": true
+                    Objects Of Interest:
+                      AvoidanceByLCLeft: true
+                      AvoidanceByLCRight: true
+                      AvoidanceLeft: true
+                      AvoidanceRight: true
+                      BlindSpot: true
+                      Crosswalk: true
+                      DetectionArea: true
+                      GoalPlanner: true
+                      Intersection: true
+                      LaneChangeLeft: true
+                      LaneChangeRight: true
+                      NoStoppingArea: true
+                      StartPlanner: true
+                      TrafficLight: true
                       Value: true
                     Value: true
                   Sensing:
@@ -4212,7 +4230,11 @@ Visualization Manager:
       Enabled: true
       Name: MarkerArray
       Namespaces:
-        {}
+        goal_lanelets: true
+        lane_start_bound: true
+        left_lane_bound: true
+        right_lane_bound: true
+        route_lanelets: true
       Topic:
         Depth: 5
         Durability Policy: Volatile
@@ -4294,7 +4316,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: 0.32499998807907104
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -4304,11 +4326,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 7.150831699371338
+      Scale: 8.25942611694336
       Target Frame: viewer
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 0
-      Y: 0
+      X: 171.67559814453125
+      Y: -651.5478515625
     Saved:
       - Class: rviz_default_plugins/ThirdPersonFollower
         Distance: 18
