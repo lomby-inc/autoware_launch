@@ -3695,6 +3695,17 @@ Visualization Manager:
           Name: Control
       Enabled: false
       Name: Debug
+      Class: lomby_rviz2_plugins/ProximityStateOverlayDisplay
+      Detection Color: 0; 255; 0
+      Enabled: true
+      Font Size: 24
+      Mute Color: 255; 255; 0
+      Name: ProximityStateOverlayDisplay
+      Topic: /lomby/proximity_state
+      Undetection Color: 255; 255; 255
+      Value: true
+      X Position: 610
+      Y Position: 170
   Enabled: true
   Global Options:
     Background Color: 15; 20; 23
