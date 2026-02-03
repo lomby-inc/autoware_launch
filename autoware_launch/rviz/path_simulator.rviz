@@ -818,11 +818,7 @@ Visualization Manager:
               Enabled: true
               Name: RouteArea
               Namespaces:
-                goal_lanelets: true
-                lane_start_bound: true
-                left_lane_bound: true
-                right_lane_bound: true
-                route_lanelets: true
+                {}
               Topic:
                 Depth: 5
                 Durability Policy: Transient Local
@@ -1925,8 +1921,7 @@ Visualization Manager:
                           Enabled: true
                           Name: VirtualWall (StopLine)
                           Namespaces:
-                            67541_stop_factor_text: true
-                            67541_stop_virtual_wall: true
+                            {}
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2979,21 +2974,8 @@ Visualization Manager:
                     "": true
                     Value: true
                   Planning:
-                    Objects Of Interest:
-                      AvoidanceByLCLeft: true
-                      AvoidanceByLCRight: true
-                      AvoidanceLeft: true
-                      AvoidanceRight: true
-                      BlindSpot: true
-                      Crosswalk: true
-                      DetectionArea: true
-                      GoalPlanner: true
-                      Intersection: true
-                      LaneChangeLeft: true
-                      LaneChangeRight: true
-                      NoStoppingArea: true
-                      StartPlanner: true
-                      TrafficLight: true
+                    "":
+                      "": true
                       Value: true
                     Value: true
                   Sensing:
@@ -3018,6 +3000,7 @@ Visualization Manager:
                   Lanelet2VectorMap: true
                   PointCloudMap: true
                   Value: false
+                Marker: true
                 MarkerArray: true
                 Perception:
                   ObjectRecognition:
@@ -4230,11 +4213,7 @@ Visualization Manager:
       Enabled: true
       Name: MarkerArray
       Namespaces:
-        goal_lanelets: true
-        lane_start_bound: true
-        left_lane_bound: true
-        right_lane_bound: true
-        route_lanelets: true
+        {}
       Topic:
         Depth: 5
         Durability Policy: Volatile
@@ -4270,6 +4249,19 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /lomby/map/vector_map_marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Marker
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /lomby/all_path_checker/failure_marker
       Value: true
   Enabled: true
   Global Options:
@@ -4316,7 +4308,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0.32499998807907104
+      Angle: 0
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -4326,11 +4318,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 8.25942611694336
+      Scale: 10
       Target Frame: viewer
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 171.67559814453125
-      Y: -651.5478515625
+      X: 0
+      Y: 0
     Saved:
       - Class: rviz_default_plugins/ThirdPersonFollower
         Distance: 18
