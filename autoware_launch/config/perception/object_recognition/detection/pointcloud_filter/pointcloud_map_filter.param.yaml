@@ -5,7 +5,7 @@
     down_sample_voxel_size: 0.05
 
     # distance threshold for compare compare
-    distance_threshold: 0.54
+    distance_threshold: 0.2
 
     # ratio to reduce voxel_leaf_size and neighbor points distance threshold in z axis
     downsize_ratio_z_axis: 0.05
