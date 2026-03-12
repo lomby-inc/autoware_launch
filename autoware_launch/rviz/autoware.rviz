@@ -317,7 +317,7 @@ Visualization Manager:
             Durability Policy: Transient Local
             History Policy: Keep Last
             Reliability Policy: Reliable
-            Value: /map/pointcloud_map
+            Value: /map/output/debug/downsampled_pointcloud_map
           Use Fixed Frame: true
           Use rainbow: false
           Value: true
