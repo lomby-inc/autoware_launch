@@ -401,14 +401,26 @@ Visualization Manager:
             - Alpha: 0.999
               Class: rviz_default_plugins/Polygon
               Color: 25; 255; 0
-              Enabled: false
-              Name: MeasurementRange
+              Enabled: true
+              Name: VehicleCropBoxPolygon
               Topic:
                 Depth: 5
                 Durability Policy: Volatile
                 History Policy: Keep Last
                 Reliability Policy: Reliable
-                Value: /sensing/lidar/crop_box_filter/crop_box_polygon
+                Value: /sensing/lidar/vehicle_crop_box_filter_node/crop_box_polygon
+              Value: false
+            - Alpha: 0.999
+              Class: rviz_default_plugins/Polygon
+              Color: 25; 255; 0
+              Enabled: false
+              Name: LidarCropBoxPolygon
+              Topic:
+                Depth: 5
+                Durability Policy: Volatile
+                History Policy: Keep Last
+                Reliability Policy: Reliable
+                Value: /sensing/lidar/lidar_crop_box_filter_node/crop_box_polygon
               Value: false
           Enabled: true
           Name: LiDAR
@@ -456,7 +468,7 @@ Visualization Manager:
           Font Size: 24
           Mute Color: 255; 255; 0
           Name: ProximityStateOverlayDisplay
-          Topic: /lomby/proximity_state
+          Topic: /lomby/proximity/status
           Undetection Color: 255; 255; 255
           Value: true
           X Position: 610
