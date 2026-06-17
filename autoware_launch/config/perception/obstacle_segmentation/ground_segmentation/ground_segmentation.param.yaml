@@ -19,11 +19,11 @@
       plugin: "ground_segmentation::ScanGroundFilterComponent"
       parameters:
         global_slope_max_angle_deg: 10.0
-        local_slope_max_angle_deg: 30.0 # recommended 30.0 for non elevation_grid_mode
-        split_points_distance_tolerance: 0.2
+        local_slope_max_angle_deg: 40.0 # recommended 30.0 for non elevation_grid_mode
+        split_points_distance_tolerance: 0.25
         use_virtual_ground_point: true
-        split_height_distance: 0.2
-        non_ground_height_threshold: 0.20
+        split_height_distance: 0.25
+        non_ground_height_threshold: 0.25
         grid_size_m: 0.1
         grid_mode_switch_radius: 20.0
         gnd_grid_buffer_size: 4
