@@ -3726,7 +3726,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /planning/mission_planning/goal
+        Value: /goal_pose
     - Class: tier4_adapi_rviz_plugins::RouteTool
       Topic:
         Depth: 5
