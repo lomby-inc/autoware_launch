@@ -10,7 +10,7 @@
     <node pkg="lomby_remote_monitoring_camera_manager" name="remote_monitoring_camera_controller" exec="remote_monitoring_camera_controller" />
     <node pkg="lomby_drive_scenario_loader" exec="autoware_v1_autonomous_driving_commander" />
     <node pkg="lomby_localization_checker" name="lomby_localization_checker" exec="lomby_localization_checker" />
-    <include file="$(find-pkg-share lomby_vector_map_planning_tools)/launch/lomby_vector_map_planning_tools.launch.py"/>
+    <!-- <include file="$(find-pkg-share lomby_vector_map_planning_tools)/launch/lomby_vector_map_planning_tools.launch.py"/> -->
     <include file="$(find-pkg-share lomby_geo_json_planning_tools)/launch/lomby_geo_json_planning_tools.launch.py"/>
     <node pkg="lomby_notification_manager" name="lomby_notification_manager" exec="lomby_notification_manager" />
   </group>
