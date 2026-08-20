@@ -39,7 +39,7 @@
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
   <arg name="diagnostic_graph_aggregator_graph_path" default="$(find-pkg-share autoware_launch_lomby)/config/system/diagnostic_graph_aggregator/autoware-main.yaml" description="diagnostic graph config"/>
   <!-- Tools -->
-  <arg name="rviz" default="true" description="launch rviz"/>
+  <arg name="rviz" default="false" description="launch rviz"/>
   <arg name="rviz_config" default="$(find-pkg-share autoware_launch_lomby)/rviz/autoware.rviz" description="rviz config"/>
   <arg name="rviz_respawn" default="true"/>
   <!-- Perception -->
