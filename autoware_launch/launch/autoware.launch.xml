@@ -33,6 +33,7 @@
   <!-- Map -->
   <arg name="lanelet2_map_file" default="lanelet2.osm" description="lanelet2 map file name"/>
   <arg name="pointcloud_map_file" default="map.pcd" description="pointcloud map file name"/>
+  <arg name="pointcloud_map_metadata_file" default="pointcloud_map_metadata.yaml" description="pointcloud map metadata file name, relative to map_path. A path that does not exist makes map_loader derive metadata from a single PCD, which is the only way to load an untiled map"/>
   <!-- System -->
   <arg name="system_run_mode" default="online" description="run mode in system"/>
   <arg name="launch_system_monitor" default="false" description="launch system monitor"/>
@@ -44,6 +45,10 @@
   <arg name="rviz_respawn" default="true"/>
   <!-- Perception -->
   <arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/>
+  <arg name="lidar_detection_model" default="centerpoint" description="lidar detector. options: `transfusion`, `centerpoint`, `apollo`, `pointpainting`, `clustering`. `clustering` is rule-based and needs no CUDA/TensorRT"/>
+  <arg name="use_object_filter" default="true" description="filter detected objects against the lanelet map"/>
+  <arg name="use_moving_object_filter" default="false" description="republish only tracked objects that are actually moving, on .../tracking/moving_objects. Opt-in: it is a noise reducer, not a safety filter -- a standing pedestrian has zero speed and is deliberately absent"/>
+  <arg name="pointcloud_map_filter_param_file" default="$(find-pkg-share autoware_launch_lomby)/config/perception/object_recognition/detection/pointcloud_filter/pointcloud_map_filter.param.yaml" description="compare_map_segmentation params, which mask mapped structure out of the clustering input"/>
   <arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/>
   <!-- Auto mode setting-->
   <arg name="enable_all_modules_auto_mode" default="false" description="enable all module's auto mode"/>
@@ -108,6 +113,10 @@
   <group if="$(var launch_perception)">
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
+      <arg name="lidar_detection_model" value="$(var lidar_detection_model)"/>
+      <arg name="use_object_filter" value="$(var use_object_filter)"/>
+      <arg name="pointcloud_map_filter_param_file" value="$(var pointcloud_map_filter_param_file)"/>
+      <arg name="use_moving_object_filter" value="$(var use_moving_object_filter)"/>
       <arg name="use_traffic_light_recognition" value="false"/>
       <arg name="use_empty_dynamic_object_publisher" value="false"/>
     </include>
