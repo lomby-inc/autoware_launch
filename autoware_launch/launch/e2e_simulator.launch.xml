@@ -79,6 +79,54 @@
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
   <!-- Sensing -->
   <arg name="launch_sensing_driver" default="false"/>
+  <!-- Bypass the per-lidar filter chain and let the merge stage read what AWSIM
+       emits. With this false, crop_box_filter_self, crop_box_filter_mirror,
+       distortion_corrector_node and ring_outlier_filter are not launched at all,
+       and concatenate_data subscribes to /sensing/lidar/left|right/pointcloud_raw_ex.
+
+       It has to be pointcloud_raw_ex. AWSIM also publishes pointcloud_raw, which is
+       already 16 B and looks like the closer match, but it carries five fields with
+       intensity as a FLOAT32 at offset 12 overlapping channel at offset 14.
+       concatenate wants at least six fields whose first six match PointXYZIRC
+       exactly, so it rejects that topic and publishes nothing at all. The _ex topic
+       is PointXYZIRCAEDT, whose first six fields are PointXYZIRC byte for byte.
+
+       What bypassing costs: the concatenated cloud grows from ~10.5 k points to
+       ~28 k and every downstream filter pays for it; sweeps are no longer un-skewed
+       for ego motion, which was distortion_corrector_node's job and matters most at
+       speed since NDT reads this cloud; and stray returns are no longer culled,
+       which was 60% of each sweep. The ego footprint is still cropped, by the
+       crop_box_filter that sits after the merge. -->
+  <arg name="use_lidar_preprocessing" default="true" description="false feeds the merge stage AWSIM's raw pointcloud_raw_ex and skips the four per-lidar filters"/>
+  <!-- Time-accumulated lidar cloud, published alongside the normal one on
+       /sensing/lidar/concatenated/pointcloud_accumulated by a
+       pointcloud_accumulator_node at the tail of the sensor kit chain.
+
+       It is a parallel topic rather than an in-line stage because the node
+       round-trips through pcl::PointXYZ and drops intensity/return_type/channel.
+       Every preprocessor filter on the fast API path (the perception crop_box and
+       the NDT voxel_grid/random downsamplers included) rejects a frame that is
+       not PointXYZIRC/PointXYZIRCAEDT and logs "The pointcloud layout is not
+       compatible ... Aborting", so feeding it into concatenated/pointcloud would
+       take out perception and localization together. Nothing subscribes to the
+       accumulated topic by default; point a layout-agnostic consumer (rviz, a
+       nav2 costmap layer) at it to use it.
+
+       accumulator_frame is where the sweeps are buffered and must stay
+       world-fixed. The node sums its buffer with a plain `+=` and no per-cloud
+       pose correction, so buffering in base_link would stack a 2 s old sweep onto
+       the current pose and smear by however far the robot travelled. This TF tree
+       is map -> base_link with no odom, so map is the only choice; the cost is
+       ~1 cm of float32 quantisation at this map's MGRS offset, and no output
+       until localization is up.
+
+       These four reach the sensor kit by launch-configuration propagation:
+       tier4_sensing_launch sits in between and forwards only its own fixed arg
+       list, so they are not passed down hop by hop. -->
+  <arg name="use_pointcloud_accumulator" default="true" description="publish a time-accumulated lidar cloud on /sensing/lidar/concatenated/pointcloud_accumulated"/>
+  <arg name="accumulator_frame" default="map" description="world-fixed frame the sweeps are buffered in; base_link here would smear the result by the distance travelled"/>
+  <arg name="accumulation_time_sec" default="0.5" description="length of the sliding accumulation window. This is the declaration that wins: it is the outermost, and a launch argument keeps the first value it is given"/>
+  <arg name="pointcloud_buffer_size" default="30" description="max sweeps held; must cover accumulation_time_sec x input rate (10 Hz here)"/>
   <!-- Tools -->
   <arg name="rviz" default="true" description="launch rviz"/>
   <arg name="rviz_config" default="$(find-pkg-share autoware_launch_lomby)/rviz/autoware.rviz" description="rviz config"/>
