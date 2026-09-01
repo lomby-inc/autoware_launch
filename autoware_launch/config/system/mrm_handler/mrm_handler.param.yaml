@@ -8,7 +8,7 @@
     timeout_cancel_mrm_behavior: 0.01
     use_emergency_holding: false
     timeout_emergency_recovery: 5.0
-    use_parking_after_stopped: false
+    use_parking_after_stopped: true
     use_pull_over: false
     use_comfortable_stop: false
 

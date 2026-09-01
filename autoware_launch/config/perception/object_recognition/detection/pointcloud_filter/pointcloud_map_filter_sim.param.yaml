@@ -1,0 +1,46 @@
+# Sim-only compare_map_segmentation params. Identical to
+# pointcloud_map_filter.param.yaml except for downsize_ratio_z_axis, and the
+# reason for that one difference is a hard limit rather than a preference.
+#
+# The z leaf of the per-tile voxel grid is down_sample_voxel_size *
+# downsize_ratio_z_axis. PCL's VoxelGrid refuses to build a leaf layout when
+# dx*dy*dz would overflow int32: it warns, returns the cloud UNCHANGED, and
+# every later getCentroidIndexAt() returns -1. The filter then passes every
+# point through while looking entirely healthy -- no error, correct topic rate,
+# nothing masked. Measured on the untiled Nishishinjuku map: output point count
+# byte-identical to input, 0 points removed.
+#
+# At down_sample_voxel_size 0.05 the shared value of 0.05 gives a 2.5 mm z leaf,
+# which needs tile_pitch^2 * tile_z_extent < 33.5 to fit in int32 -- unreachable
+# for any usable tile size. 0.6 (Autoware's own default) gives a 30 mm z leaf and
+# fits with a 2.7x margin on 50 m tiles, whose tallest spans 23.4 m in z.
+#
+# Check any retune, or any new map, with:
+#   sim_test/tools/tile_pointcloud_map.py <map>.pcd --dry-run --check-leaf 0.05,0.6
+/**:
+  ros__parameters:
+
+    # voxel size for downsample filter
+    down_sample_voxel_size: 0.05
+
+    # distance threshold for compare compare
+    distance_threshold: 0.54
+
+    # ratio to reduce voxel_leaf_size and neighbor points distance threshold in z axis
+    # (see the header: this is the value that makes the filter work at all)
+    downsize_ratio_z_axis: 0.6
+
+    # publish voxelized map pointcloud for debug
+    publish_debug_pcd: False
+
+    # use dynamic map loading
+    use_dynamic_map_loading: True
+
+    # time interval to check dynamic map loading
+    timer_interval_ms: 100
+
+    # distance threshold for dynamic map update
+    map_update_distance_threshold: 10.0
+
+    # radius map for dynamic map loading
+    map_loader_radius: 50.0

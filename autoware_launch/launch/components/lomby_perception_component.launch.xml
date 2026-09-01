@@ -13,6 +13,8 @@
   <arg name="use_detection_by_tracker" default="true" description="launch detection_by_tracker function"/>
   <arg name="use_radar_tracking_fusion" default="true" description="if true, radar objects are merged in tracking module. Otherwise, radar objects are merged in detection module."/>
   <arg name="use_object_filter" default="true" description="launch object filter to filter-out detected object"/>
+  <arg name="use_moving_object_filter" default="false" description="republish only tracked objects that are actually moving, on .../tracking/moving_objects. Opt-in: it is a noise reducer, not a safety filter -- a standing pedestrian has zero speed and is deliberately absent"/>
+  <arg name="pointcloud_map_filter_param_file" default="$(find-pkg-share autoware_launch_lomby)/config/perception/object_recognition/detection/pointcloud_filter/pointcloud_map_filter.param.yaml" description="compare_map_segmentation params. The sim overrides this; see pointcloud_map_filter_sim.param.yaml for why"/>
 
   <arg name="occupancy_grid_map_method" default="pointcloud_based" description="options: pointcloud_based, laserscan_based, multi_lidar_pointcloud_based"/>
   <arg name="occupancy_grid_map_updater" default="binary_bayes_filter" description="options: binary_bayes_filter"/>
@@ -75,7 +77,7 @@
     />
     <arg
       name="object_recognition_detection_pointcloud_map_filter_param_path"
-      value="$(find-pkg-share autoware_launch_lomby)/config/perception/object_recognition/detection/pointcloud_filter/pointcloud_map_filter.param.yaml"
+      value="$(var pointcloud_map_filter_param_file)"
     />
     <arg
       name="object_recognition_detection_fusion_sync_param_path"
@@ -197,4 +199,20 @@
     <arg name="car_traffic_light_classifier_model_name" value="traffic_light_classifier_mobilenetv2_batch_6"/>
     <arg name="pedestrian_traffic_light_classifier_model_name" value="ped_traffic_light_classifier_mobilenetv2_batch_4"/>
   </include>
+
+  <!-- Opt-in velocity gate on the tracker output. Default off: with the
+       compare_map filter working, mapped structure no longer becomes clusters,
+       which removes the noise this was written for at its source. Measured on
+       the pre-fix noise it suppressed 79.1% of object samples; measured after
+       the map fix there is little left for it to do.
+       Worth knowing before switching it on: no cheap kinematic gate separates a
+       jittering cluster from a real mover at a useful timescale. Instantaneous
+       speed leaks (24.4% of samples cleared 0.2 m/s with the ego parked), net
+       displacement over 2 s does not separate (movers 2.29 m vs noise 1.94 m),
+       and neither does straightness (0.84 vs 0.93). Cluster centroids jump
+       metres when segmentation changes. This trims a symptom; the map filter
+       removes the cause. -->
+  <group if="$(var use_moving_object_filter)">
+    <include file="$(find-pkg-share moving_object_filter)/launch/moving_object_filter.launch.xml"/>
+  </group>
 </launch>

@@ -2,10 +2,10 @@ launch:
   # behavior path modules
   - arg:
       name: launch_static_obstacle_avoidance
-      default: "true"
+      default: "false"
   - arg:
       name: launch_avoidance_by_lane_change_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_dynamic_obstacle_avoidance
       default: "false"
@@ -14,10 +14,10 @@ launch:
       default: "false" # Warning, experimental module, use only in simulations
   - arg:
       name: launch_lane_change_right_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_lane_change_left_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_external_request_lane_change_right_module
       default: "false"
@@ -26,13 +26,13 @@ launch:
       default: "false"
   - arg:
       name: launch_goal_planner_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_start_planner_module
-      default: "true"
+      default: "false"
   - arg:
       name: launch_side_shift_module
-      default: "true"
+      default: "false"
 
   # behavior velocity modules
   - arg:
@@ -105,7 +105,7 @@ launch:
 
   - arg:
       name: motion_stop_planner_type
-      default: obstacle_cruise_planner
+      default: obstacle_stop_planner
       # option: obstacle_stop_planner
       #         obstacle_cruise_planner
       #         none

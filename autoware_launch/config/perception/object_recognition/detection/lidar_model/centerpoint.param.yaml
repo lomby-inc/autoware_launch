@@ -11,11 +11,12 @@
     post_process_params:
       # post-process params
       circle_nms_dist_threshold: 0.5
-      iou_nms_target_class_names: ["CAR"]
+      iou_nms_target_class_names: ["CAR","TRUCK", "BUS", "BICYCLE", "PEDESTRIAN"]
       iou_nms_search_distance_2d: 10.0
       iou_nms_threshold: 0.1
       yaw_norm_thresholds: [0.3, 0.3, 0.3, 0.3, 0.0]
-      score_threshold: 0.35
+      score_threshold: 0.15
     densification_params:
       world_frame_id: map
-      num_past_frames: 1
+      num_past_frames: 4
+
