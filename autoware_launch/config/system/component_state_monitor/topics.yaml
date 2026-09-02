@@ -193,3 +193,120 @@
     warn_rate: 5.0
     error_rate: 1.0
     timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: 3d_lidar_raw_status
+    topic: /sensing/lidar/hesai/pandar
+    topic_type: sensor_msgs/msg/PointCloud2
+    best_effort: false
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 2.0
+    timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: concatenated_pointcloud_status
+    topic: /sensing/lidar/concatenated/pointcloud
+    topic_type: sensor_msgs/msg/PointCloud2
+    best_effort: true
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 2.0
+    timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: 2d_lidar_raw_status
+    topic: /right_scan_fullframe
+    topic_type: sensor_msgs/msg/LaserScan
+    best_effort: false
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 1.0
+    timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: rear_2d_lidar_raw_status
+    topic: /sensing/scan
+    topic_type: sensor_msgs/msg/LaserScan
+    best_effort: false
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 1.0
+    timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: imu_raw_status
+    topic: /sick_scansegment_xd/imu_right
+    topic_type: sensor_msgs/msg/Imu
+    best_effort: false
+    transient_local: false
+    warn_rate: 50.0
+    error_rate: 10.0
+    timeout: 0.5
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: imu_output_status
+    topic: /sensing/imu/imu_data
+    topic_type: sensor_msgs/msg/Imu
+    best_effort: false
+    transient_local: false
+    warn_rate: 50.0
+    error_rate: 10.0
+    timeout: 0.5
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: gnss_raw_status
+    topic: /ublox_gps_node/fix
+    topic_type: sensor_msgs/msg/NavSatFix
+    best_effort: false
+    transient_local: false
+    warn_rate: 0.8
+    error_rate: 0.2
+    timeout: 3.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: gnss_output_status
+    topic: /sensing/gnss/ublox_gps_node/fix
+    topic_type: sensor_msgs/msg/NavSatFix
+    best_effort: false
+    transient_local: false
+    warn_rate: 0.8
+    error_rate: 0.2
+    timeout: 3.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: traffic_light_camera_raw_status
+    topic: /sensing/trafficlight_camera/image_rect
+    topic_type: sensor_msgs/msg/Image
+    best_effort: true
+    transient_local: false
+    warn_rate: 3.0
+    error_rate: 1.0
+    timeout: 1.0

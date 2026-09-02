@@ -1,0 +1,59 @@
+units:
+  - path: /autoware/sensing
+    type: and
+    list:
+      - { type: link, link: /autoware/sensing/topic_rate_check/3d_lidar_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/concatenated_pointcloud }
+      - { type: link, link: /autoware/sensing/topic_rate_check/2d_lidar_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/rear_2d_lidar_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/imu_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/imu_output }
+      - { type: link, link: /autoware/sensing/topic_rate_check/gnss_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/gnss_output }
+      - { type: link, link: /autoware/sensing/topic_rate_check/traffic_light_camera_raw }
+
+  - path: /autoware/sensing/topic_rate_check/3d_lidar_raw
+    type: diag
+    node: topic_state_monitor_3d_lidar_raw_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/concatenated_pointcloud
+    type: diag
+    node: topic_state_monitor_concatenated_pointcloud_status
+    name: sensing_topic_status
+  
+  - path: /autoware/sensing/topic_rate_check/2d_lidar_raw
+    type: diag
+    node: topic_state_monitor_2d_lidar_raw_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/rear_2d_lidar_raw
+    type: diag
+    node: topic_state_monitor_rear_2d_lidar_raw_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/imu_raw
+    type: diag
+    node: topic_state_monitor_imu_raw_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/imu_output
+    type: diag
+    node: topic_state_monitor_imu_output_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/gnss_raw
+    type: diag
+    node: topic_state_monitor_gnss_raw_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/gnss_output
+    type: diag
+    node: topic_state_monitor_gnss_output_status
+    name: sensing_topic_status
+  
+  - path: /autoware/sensing/topic_rate_check/traffic_light_camera_raw
+    type: diag
+    node: topic_state_monitor_traffic_light_camera_raw_status
+    name: sensing_topic_status
+
