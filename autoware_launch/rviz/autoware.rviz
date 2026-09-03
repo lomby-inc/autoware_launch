@@ -4319,7 +4319,7 @@ Visualization Manager:
         Durability Policy: Transient Local
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /route_graph
+        Value: /route_graph_viz
       Value: true
     - Class: rviz_default_plugins/MarkerArray
       Enabled: true
