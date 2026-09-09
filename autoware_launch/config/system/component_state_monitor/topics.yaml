@@ -298,15 +298,15 @@
     error_rate: 0.2
     timeout: 3.0
 
-- module: sensing
-  mode: [online]
-  type: autonomous
-  args:
-    node_name_suffix: traffic_light_camera_raw_status
-    topic: /sensing/trafficlight_camera/image_rect
-    topic_type: sensor_msgs/msg/Image
-    best_effort: true
-    transient_local: false
-    warn_rate: 3.0
-    error_rate: 1.0
-    timeout: 1.0
+# - module: sensing
+#   mode: [online]
+#   type: autonomous
+#   args:
+#     node_name_suffix: traffic_light_camera_raw_status
+#     topic: /sensing/trafficlight_camera/image_rect
+#     topic_type: sensor_msgs/msg/Image
+#     best_effort: true
+#     transient_local: false
+#     warn_rate: 3.0
+#     error_rate: 1.0
+#     timeout: 1.0

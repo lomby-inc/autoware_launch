@@ -10,7 +10,6 @@ units:
       - { type: link, link: /autoware/sensing/topic_rate_check/imu_output }
       - { type: link, link: /autoware/sensing/topic_rate_check/gnss_raw }
       - { type: link, link: /autoware/sensing/topic_rate_check/gnss_output }
-      - { type: link, link: /autoware/sensing/topic_rate_check/traffic_light_camera_raw }
 
   - path: /autoware/sensing/topic_rate_check/3d_lidar_raw
     type: diag
@@ -52,8 +51,3 @@ units:
     node: topic_state_monitor_gnss_output_status
     name: sensing_topic_status
   
-  - path: /autoware/sensing/topic_rate_check/traffic_light_camera_raw
-    type: diag
-    node: topic_state_monitor_traffic_light_camera_raw_status
-    name: sensing_topic_status
-
