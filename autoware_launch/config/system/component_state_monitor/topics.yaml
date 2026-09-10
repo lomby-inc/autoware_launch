@@ -290,7 +290,7 @@
   type: autonomous
   args:
     node_name_suffix: 2d_lidar_raw_status
-    topic: /right_scan_fullframe
+    topic: /sensing/lidar/front_scan_fullframe
     topic_type: sensor_msgs/msg/LaserScan
     best_effort: false
     transient_local: false
@@ -316,7 +316,7 @@
   type: autonomous
   args:
     node_name_suffix: imu_raw_status
-    topic: /sick_scansegment_xd/imu_right
+    topic: /sensing/lidar/sick_scansegment_xd/imu_front
     topic_type: sensor_msgs/msg/Imu
     best_effort: false
     transient_local: false
