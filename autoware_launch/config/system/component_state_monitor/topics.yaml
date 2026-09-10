@@ -250,8 +250,21 @@
   mode: [online]
   type: autonomous
   args:
-    node_name_suffix: 3d_lidar_raw_status
-    topic: /sensing/lidar/hesai/pandar
+    node_name_suffix: left_3d_lidar_raw_status
+    topic: /sensing/lidar/livox/lidar_192_168_30_5
+    topic_type: sensor_msgs/msg/PointCloud2
+    best_effort: false
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 2.0
+    timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: right_3d_lidar_raw_status
+    topic: /sensing/lidar/livox/lidar_192_168_30_7
     topic_type: sensor_msgs/msg/PointCloud2
     best_effort: false
     transient_local: false
