@@ -24,6 +24,19 @@
     error_rate: 0.0
     timeout: 0.0
 
+- module: map
+  mode: [online, logging_simulation, planning_simulation]
+  type: launch
+  args:
+    node_name_suffix: route_graph
+    topic: /route_graph
+    topic_type: visualization_msgs/msg/MarkerArray
+    best_effort: false
+    transient_local: true
+    warn_rate: 0.0
+    error_rate: 0.0
+    timeout: 0.0
+
 - module: localization
   mode: [online, logging_simulation, planning_simulation]
   type: autonomous
@@ -75,6 +88,32 @@
     warn_rate: 5.0
     error_rate: 1.0
     timeout: 1.0
+
+- module: perception
+  mode: [online, logging_simulation, planning_simulation]
+  type: autonomous
+  args:
+    node_name_suffix: local_costmap
+    topic: /local_costmap/costmap_raw
+    topic_type: nav2_msgs/msg/Costmap
+    best_effort: false
+    transient_local: false
+    warn_rate: 3.0
+    error_rate: 1.0
+    timeout: 0.6
+
+- module: perception
+  mode: [online, logging_simulation, planning_simulation]
+  type: autonomous
+  args:
+    node_name_suffix: global_costmap
+    topic: /global_costmap/costmap_raw
+    topic_type: nav2_msgs/msg/Costmap
+    best_effort: false
+    transient_local: false
+    warn_rate: 0.3
+    error_rate: 0.1
+    timeout: 10.0
 
 # - module: perception
 #   mode: [online, logging_simulation]
@@ -141,6 +180,19 @@
     error_rate: 1.0
     timeout: 1.0
 
+- module: control
+  mode: [online, logging_simulation, planning_simulation]
+  type: autonomous
+  args:
+    node_name_suffix: cmd_vel
+    topic: /cmd_vel
+    topic_type: geometry_msgs/msg/TwistStamped
+    best_effort: false
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 1.0
+    timeout: 1.0
+
 - module: vehicle
   mode: [online, logging_simulation, planning_simulation]
   type: autonomous
@@ -198,8 +250,21 @@
   mode: [online]
   type: autonomous
   args:
-    node_name_suffix: 3d_lidar_raw_status
-    topic: /sensing/lidar/hesai/pandar
+    node_name_suffix: left_3d_lidar_raw_status
+    topic: /sensing/lidar/livox/lidar_192_168_30_5
+    topic_type: sensor_msgs/msg/PointCloud2
+    best_effort: false
+    transient_local: false
+    warn_rate: 5.0
+    error_rate: 2.0
+    timeout: 1.0
+
+- module: sensing
+  mode: [online]
+  type: autonomous
+  args:
+    node_name_suffix: right_3d_lidar_raw_status
+    topic: /sensing/lidar/livox/lidar_192_168_30_7
     topic_type: sensor_msgs/msg/PointCloud2
     best_effort: false
     transient_local: false
@@ -225,7 +290,7 @@
   type: autonomous
   args:
     node_name_suffix: 2d_lidar_raw_status
-    topic: /right_scan_fullframe
+    topic: /sensing/lidar/front_scan_fullframe
     topic_type: sensor_msgs/msg/LaserScan
     best_effort: false
     transient_local: false
@@ -251,7 +316,7 @@
   type: autonomous
   args:
     node_name_suffix: imu_raw_status
-    topic: /sick_scansegment_xd/imu_right
+    topic: /sensing/lidar/sick_scansegment_xd/imu_front
     topic_type: sensor_msgs/msg/Imu
     best_effort: false
     transient_local: false
