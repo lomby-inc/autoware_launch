@@ -85,9 +85,9 @@ original `.pcd` is never modified, and every input point is accounted for.
 downsize_ratio_z_axis: 0.6      # was 0.05
 ```
 
-`0.6` is Autoware's own default: a 30 mm z leaf and a 324 mm z tolerance.
+`0.6` is Autoware's own default: a 30 mm z leaf and a 120 mm z tolerance.
 
-Keep `down_sample_voxel_size: 0.05` and `distance_threshold: 0.54` as they are.
+Keep `down_sample_voxel_size: 0.05` and `distance_threshold: 0.2` as they are.
 
 ## The budget you have to satisfy
 
@@ -111,7 +111,7 @@ Tiling is not optional, and neither is checking the number for your own map.
 ## What the change costs
 
 Anything within `distance_threshold` of mapped structure is deleted —
-**54 cm horizontally, 32 cm vertically** with these values. A pedestrian standing
+**20 cm horizontally, 12 cm vertically** with these values. A pedestrian standing
 against a facade can be erased along with the facade.
 
 In the sim, a pedestrian 6 m ahead in open space survives and is tracked to
