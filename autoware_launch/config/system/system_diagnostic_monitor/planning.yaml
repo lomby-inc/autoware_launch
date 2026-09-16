@@ -6,9 +6,7 @@ units:
         link: /autoware/planning/routing/state
       - type: and
         list:
-          - { type: link, link: /autoware/planning/topic_rate_check/route }
-          - { type: link, link: /autoware/planning/topic_rate_check/trajectory }
-          - { type: link, link: /autoware/planning/trajectory_validation }
+          - { type: link, link: /autoware/planning/topic_rate_check/optimal_trajectory }
 
   - path: /autoware/planning/trajectory_validation
     type: and
@@ -29,14 +27,14 @@ units:
     node: component_state_diagnostics
     name: route_state
 
-  - path: /autoware/planning/topic_rate_check/route
+  - path: /autoware/planning/topic_rate_check/original_route
     type: diag
-    node: topic_state_monitor_mission_planning_route
+    node: topic_state_monitor_original_route
     name: planning_topic_status
 
-  - path: /autoware/planning/topic_rate_check/trajectory
+  - path: /autoware/planning/topic_rate_check/optimal_trajectory
     type: diag
-    node: topic_state_monitor_scenario_planning_trajectory
+    node: topic_state_monitor_optimal_trajectory
     name: planning_topic_status
 
   - path: /autoware/planning/trajectory_validation/finite

@@ -4,6 +4,8 @@ units:
     list:
       - { type: link, link: /autoware/perception/topic_rate_check/objects }
       - { type: link, link: /autoware/perception/topic_rate_check/pointcloud }
+      - { type: link, link: /autoware/perception/topic_rate_check/local_costmap }
+      - { type: link, link: /autoware/perception/topic_rate_check/global_costmap }
 
   - path: /autoware/perception/topic_rate_check/objects
     type: diag
@@ -13,4 +15,14 @@ units:
   - path: /autoware/perception/topic_rate_check/pointcloud
     type: diag
     node: topic_state_monitor_obstacle_segmentation_pointcloud
+    name: perception_topic_status
+
+  - path: /autoware/perception/topic_rate_check/local_costmap
+    type: diag
+    node: topic_state_monitor_local_costmap
+    name: perception_topic_status
+
+  - path: /autoware/perception/topic_rate_check/global_costmap
+    type: diag
+    node: topic_state_monitor_global_costmap
     name: perception_topic_status

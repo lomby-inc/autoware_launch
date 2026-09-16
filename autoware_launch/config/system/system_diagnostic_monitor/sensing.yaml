@@ -2,33 +2,33 @@ units:
   - path: /autoware/sensing
     type: and
     list:
-      - { type: link, link: /autoware/sensing/topic_rate_check/3d_lidar_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/left_3d_lidar_raw_status }
+      - { type: link, link: /autoware/sensing/topic_rate_check/right_3d_lidar_raw_status }
       - { type: link, link: /autoware/sensing/topic_rate_check/concatenated_pointcloud }
-      - { type: link, link: /autoware/sensing/topic_rate_check/2d_lidar_raw }
-      - { type: link, link: /autoware/sensing/topic_rate_check/rear_2d_lidar_raw }
+      - { type: link, link: /autoware/sensing/topic_rate_check/pointcloud_2d_frame }
       - { type: link, link: /autoware/sensing/topic_rate_check/imu_raw }
       - { type: link, link: /autoware/sensing/topic_rate_check/imu_output }
       - { type: link, link: /autoware/sensing/topic_rate_check/gnss_raw }
       - { type: link, link: /autoware/sensing/topic_rate_check/gnss_output }
 
-  - path: /autoware/sensing/topic_rate_check/3d_lidar_raw
+  - path: /autoware/sensing/topic_rate_check/left_3d_lidar_raw_status
     type: diag
-    node: topic_state_monitor_3d_lidar_raw_status
+    node: topic_state_monitor_left_3d_lidar_raw_status
+    name: sensing_topic_status
+
+  - path: /autoware/sensing/topic_rate_check/right_3d_lidar_raw_status
+    type: diag
+    node: topic_state_monitor_right_3d_lidar_raw_status
     name: sensing_topic_status
 
   - path: /autoware/sensing/topic_rate_check/concatenated_pointcloud
     type: diag
     node: topic_state_monitor_concatenated_pointcloud_status
     name: sensing_topic_status
-  
-  - path: /autoware/sensing/topic_rate_check/2d_lidar_raw
-    type: diag
-    node: topic_state_monitor_2d_lidar_raw_status
-    name: sensing_topic_status
 
-  - path: /autoware/sensing/topic_rate_check/rear_2d_lidar_raw
+  - path: /autoware/sensing/topic_rate_check/pointcloud_2d_frame
     type: diag
-    node: topic_state_monitor_rear_2d_lidar_raw_status
+    node: topic_state_monitor_pointcloud_2d_frame
     name: sensing_topic_status
 
   - path: /autoware/sensing/topic_rate_check/imu_raw
