@@ -28,6 +28,8 @@
   <!-- Vehicle -->
   <arg name="vehicle_id" default="$(env VEHICLE_ID default)" description="vehicle specific ID"/>
   <arg name="launch_vehicle_interface" default="true" description="launch vehicle interface"/>
+  <!-- Localization -->
+  <arg name="use_autoware_pose_covariance_modifier" default="true" description="fuse GNSS into the pose estimate. Requires a GNSS/INS unit that reports real standard deviations; set false when there is none"/>
   <!-- Control -->
   <arg name="check_external_emergency_heartbeat" default="false"/>
   <!-- Map -->
@@ -106,6 +108,7 @@
       <arg name="twist_source" value="gyro_odom"/>
       <!-- The topic will be used in the localization util module -->
       <arg name="input_pointcloud" value="/sensing/lidar/concatenated/pointcloud"/>
+      <arg name="use_autoware_pose_covariance_modifier" value="$(var use_autoware_pose_covariance_modifier)"/>
     </include>
   </group>
 

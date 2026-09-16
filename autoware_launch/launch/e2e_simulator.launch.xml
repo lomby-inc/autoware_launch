@@ -21,6 +21,20 @@
   <arg name="perception" default="true" description="launch perception"/>
   <arg name="planning" default="true" description="launch planning"/>
   <arg name="control" default="true" description="launch control"/>
+  <!-- Localization -->
+  <!-- Off here, and it has to be. autoware_pose_covariance_modifier chooses between the
+       GNSS and NDT poses by reading the GNSS standard deviations, and production turns it
+       on for the Michibiki/QZSS receiver (autoware.universe 3dd1bb63c). The Unity sim has
+       no such receiver: it publishes /sensing/gnss/pose_with_covariance with an all-zero
+       covariance and an all-zero orientation quaternion. Zero stddev reads as a perfect
+       fix, so the modifier selects GNSS only, drops NDT entirely, and hands the EKF a
+       quaternion of length zero. ekf_localizer normalises it, divides by zero, and from
+       then on publishes map -> base_link as (x y nan) with a nan quaternion, which every
+       tf2 listener rejects - thousands of TF_NAN_INPUT errors a second, no working
+       localization, and no occupancy grid because nothing can transform to map.
+       The old sim-mid360 base pinned an autoware.universe where this defaulted to false,
+       which is why the sim worked there. -->
+  <arg name="use_autoware_pose_covariance_modifier" default="false" description="fuse GNSS into the pose estimate. Must stay false while the sim GNSS reports zero covariance"/>
   <!-- Map -->
   <arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/>
   <!-- A DIRECTORY of 50 m tiles, not the single pointcloud_map.pcd, and the
@@ -156,6 +170,8 @@
       <arg name="use_sim_time" value="$(var use_sim_time)"/>
       <!-- Vehicle -->
       <arg name="launch_vehicle_interface" value="$(var launch_vehicle_interface)"/>
+      <!-- Localization -->
+      <arg name="use_autoware_pose_covariance_modifier" value="$(var use_autoware_pose_covariance_modifier)"/>
       <!-- Map -->
       <arg name="lanelet2_map_file" value="$(var lanelet2_map_file)"/>
       <arg name="pointcloud_map_file" value="$(var pointcloud_map_file)"/>
