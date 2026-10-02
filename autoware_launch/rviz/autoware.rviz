@@ -219,7 +219,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 237
@@ -242,7 +242,7 @@ Visualization Manager:
           Use rainbow: false
           Value: false
         - Class: rviz_default_plugins/MarkerArray
-          Enabled: true
+          Enabled: false
           Name: Lanelet2VectorMap
           Namespaces:
             {}
@@ -2737,7 +2737,7 @@ Visualization Manager:
                   Class: rviz_default_plugins/Map
                   Color Scheme: map
                   Draw Behind: false
-                  Enabled: false
+                  Enabled: true
                   Name: Costmap
                   Topic:
                     Depth: 5
@@ -4306,7 +4306,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Best Effort
-        Value: /sensing/trafficlight_camera/image_rect
+        Value: /perception/traffic_light_recognition/traffic_signals_annotated
       Value: false
     - Class: rviz_default_plugins/MarkerArray
       Enabled: true
@@ -4511,7 +4511,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Best Effort
-        Value: /remote_monitoring_front/image_raw
+        Value: /sensing/remote_monitoring_front/image_raw
       Value: false
     - Alpha: 1
       Axes Length: 1
