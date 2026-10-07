@@ -20,9 +20,9 @@
       parameters:
         global_slope_max_angle_deg: 10.0
         local_slope_max_angle_deg: 40.0 # recommended 30.0 for non elevation_grid_mode
-        split_points_distance_tolerance: 0.15
+        split_points_distance_tolerance: 0.02
         use_virtual_ground_point: true
-        split_height_distance: 0.15
+        split_height_distance: 0.02
         non_ground_height_threshold: 0.15
         grid_size_m: 0.1
         grid_mode_switch_radius: 20.0
