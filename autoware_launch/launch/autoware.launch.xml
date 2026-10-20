@@ -95,8 +95,8 @@
   <!-- Localization -->
   <group if="$(var launch_localization)">
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_localization_component.launch.xml">
-      <!-- select pose_estimator: ndt, yabloc, eagleye -->
-      <arg name="pose_source" value="ndt"/>
+      <!-- select pose_estimator: ndt, yabloc, eagleye, fastlio -->
+      <arg name="pose_source" value="fastlio"/>
       <!-- "select twist_estimator. gyro_odom, eagleye" -->
       <arg name="twist_source" value="gyro_odom"/>
       <!-- The topic will be used in the localization util module -->
