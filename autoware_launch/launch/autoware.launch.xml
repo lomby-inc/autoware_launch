@@ -18,6 +18,7 @@
   <arg name="launch_sensing" default="true" description="launch sensing"/>
   <arg name="launch_sensing_driver" default="true" description="launch sensing driver"/>
   <arg name="launch_localization" default="true" description="launch localization"/>
+  <arg name="pose_source" default="fastlio" description="select pose_estimator: ndt, yabloc, eagleye, fastlio"/>
   <arg name="launch_perception" default="true" description="launch perception"/>
   <arg name="launch_planning" default="false" description="launch planning"/>
   <arg name="launch_control" default="false" description="launch control"/>
@@ -96,7 +97,7 @@
   <group if="$(var launch_localization)">
     <include file="$(find-pkg-share autoware_launch_lomby)/launch/components/lomby_localization_component.launch.xml">
       <!-- select pose_estimator: ndt, yabloc, eagleye, fastlio -->
-      <arg name="pose_source" value="fastlio"/>
+      <arg name="pose_source" value="$(var pose_source)"/>
       <!-- "select twist_estimator. gyro_odom, eagleye" -->
       <arg name="twist_source" value="gyro_odom"/>
       <!-- The topic will be used in the localization util module -->
