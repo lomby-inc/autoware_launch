@@ -15,5 +15,7 @@
     <node pkg="lomby_notification_manager" name="lomby_notification_manager" exec="lomby_notification_manager" />
     <node pkg="lomby_calculation_tools" name="remaining_driving_time" exec="remaining_driving_time" />
     <node pkg="lomby_geo_json_planning_tools" name="stop_node_service" exec="stop_node_service" />
+    <include file="$(find-pkg-share lomby_robot_monitoring)/launch/monitoring_configured.launch.py"/>
+    <include file="$(find-pkg-share lomby_safety_monitor)/launch/safety_monitor.launch.py"/>
   </group>
 </launch>
